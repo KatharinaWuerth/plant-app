@@ -7,9 +7,8 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    padding: 20px;
-    font-family: sans-serif;
-    color: darkslategray;
-    background: papayawhip;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    background: linear-gradient(0deg, white 65%, #367860 35%);
   }
 `
