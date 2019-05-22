@@ -1,10 +1,27 @@
+/**
+ * You should not need to change this
+ */
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const fs = require('fs');
+dotenv.config();
+
+try {
+  const localConfig = dotenv.parse(fs.readFileSync('.env.local'));
+  process.env = {
+    ...process.env,
+    ...localConfig
+  };
+} catch (error) {
+  console.log('no .env.local found');
+}
 
 module.exports = function() {
   mongoose
-    .connect('mongodb://localhost:27017/react-mongo-exercise', {
+    .connect(process.env.DB_URL, {
       useNewUrlParser: true
     })
     .then(() => console.log('Connected to MongoDB'))
