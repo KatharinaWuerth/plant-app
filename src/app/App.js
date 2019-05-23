@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import AppGrid from './AppGrid'
+import LayoutMain from './LayoutMain'
 import GlobalStyles from '../misc/GlobalStyles'
 import CardList from '../cards/CardList'
 import testPicture from '../img/testPicture1.jpg'
+import Header from '../header/Header'
 
 let cards = [
   { title: 'test1', img: testPicture },
@@ -15,9 +16,10 @@ export default function App() {
   return (
     <div>
       <GlobalStyles />
-      <AppGrid>
+      <Header />
+      <LayoutMain>
         <CardList cards={cards} />
-      </AppGrid>
+      </LayoutMain>
     </div>
   )
 }

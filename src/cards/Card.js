@@ -6,6 +6,7 @@ const StyledCard = styled.section`
   background: white;
   border-radius: 0 0 7px 7px;
   box-shadow: 2px 2px 9px -1px darkgray;
+  width: 70%;
   margin-bottom: 20px;
 `
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from './Card'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const StyledCardList = styled.section`
-  grid-column: 2 / 3;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  align-items: center;
 `
 
 export default function CardList({ cards }) {
@@ -17,4 +17,8 @@ export default function CardList({ cards }) {
       ))}
     </StyledCardList>
   )
+}
+
+Card.propTypes = {
+  cards: PropTypes.array,
 }
