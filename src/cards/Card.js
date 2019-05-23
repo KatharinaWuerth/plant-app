@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import testPicture from '../img/testPicture1.jpg'
+import PropTypes from 'prop-types'
 
 const StyledCard = styled.section`
   grid-column: 2 / 3;
@@ -15,23 +16,36 @@ const StyledCard = styled.section`
 const Image = styled.img`
   width: 100%;
 `
+
+const StyledName = styled.h3`
+  margin-block-end: 0;
+`
+
 const StyledTextbox = styled.section`
   padding: 20px;
 `
+const StyledLine = styled.hr`
+  border: 1.5px solid #cbe1c2;
+  border-radius: 7px;
+  width: 30%;
+  display: inline-flex;
+  text-align: left;
+  margin: 0;
+`
 
-export default function Card({ img, name }) {
+export default function Card({ img, title }) {
   return (
     <StyledCard>
-      <Image src={testPicture} />
+      <Image src={testPicture} img={img} />
       <StyledTextbox>
-        <h3>{name}</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-          ratione, magnam unde, quibusdam officiis quis enim perspiciatis
-          adipisci sunt saepe quisquam earum debitis necessitatibus iusto totam
-          voluptas labore. Quaerat, distinctio!
-        </p>
+        <StyledName>{title}</StyledName>
+        <StyledLine />
       </StyledTextbox>
     </StyledCard>
   )
+}
+
+Card.propTypes = {
+  title: PropTypes.string,
+  img: PropTypes.string,
 }
