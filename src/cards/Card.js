@@ -1,16 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import testPicture from '../img/testPicture1.jpg'
 import PropTypes from 'prop-types'
 
 const StyledCard = styled.section`
-  grid-column: 2 / 3;
-  display: flex;
-  flex-direction: column;
   background: white;
   border-radius: 0 0 7px 7px;
   box-shadow: 2px 2px 9px -1px darkgray;
-  margin: 20px 0;
+  margin-bottom: 20px;
 `
 
 const Image = styled.img`
@@ -33,10 +29,11 @@ const StyledLine = styled.hr`
   margin: 0;
 `
 
-export default function Card({ img, title }) {
+export default function Card({ img, alt, title }) {
+  console.log(title)
   return (
     <StyledCard>
-      <Image src={testPicture} img={img} />
+      <Image src={img} alt={alt} />
       <StyledTextbox>
         <StyledName>{title}</StyledName>
         <StyledLine />
