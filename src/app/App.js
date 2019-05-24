@@ -1,24 +1,28 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
 import LayoutMain from './LayoutMain'
 import GlobalStyles from '../misc/GlobalStyles'
-import CardList from '../cards/CardList'
-import testPicture from '../img/testPicture1.jpg'
+import PlantList from '../cards/PlantList'
 import Header from '../header/Header'
+import plantObjects from '../mockdata'
 
-let cards = [
-  { title: 'test1', img: testPicture },
-  { title: 'test2', img: testPicture },
-  { title: 'test3', img: testPicture },
-]
+let plants = plantObjects
 
 export default function App() {
+  const [greenList, setGreenList] = useState(plants)
+
+  function handleBookmark(id) {
+    const newGreenList = [...greenList]
+    const index = newGreenList.map(plant => plant.id).indexOf(id)
+    newGreenList[index].isBookmarked = !newGreenList[index].isBookmarked
+    setGreenList(newGreenList)
+  }
+
   return (
     <div>
       <GlobalStyles />
       <Header />
       <LayoutMain>
-        <CardList cards={cards} />
+        <PlantList plants={greenList} onBookmark={handleBookmark} />
       </LayoutMain>
     </div>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Bookmark from './Bookmark'
 
 const StyledCard = styled.section`
   background: white;
@@ -10,12 +11,18 @@ const StyledCard = styled.section`
   margin-bottom: 20px;
 `
 
-const Image = styled.img`
+const StyledPlantImage = styled.img`
   width: 100%;
 `
 
-const StyledName = styled.h3`
+const StyledTitle = styled.h3`
   margin-block-end: 0;
+  margin-block-start: 0;
+`
+const StyledCardHeader = styled.div`
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
 `
 
 const StyledTextbox = styled.section`
@@ -30,20 +37,29 @@ const StyledLine = styled.hr`
   margin: 0;
 `
 
-export default function Card({ img, alt, title }) {
-  console.log(title)
+export default function PlantCard({
+  img,
+  alt,
+  title,
+  id,
+  onBookmark,
+  isBookmarked,
+}) {
   return (
     <StyledCard>
-      <Image src={img} alt={alt} />
+      <StyledPlantImage src={img} alt={alt} />
       <StyledTextbox>
-        <StyledName>{title}</StyledName>
+        <StyledCardHeader>
+          <StyledTitle>{title}</StyledTitle>
+          <Bookmark onClick={onBookmark} id={id} isBookmarked={isBookmarked} />
+        </StyledCardHeader>
         <StyledLine />
       </StyledTextbox>
     </StyledCard>
   )
 }
 
-Card.propTypes = {
+PlantCard.propTypes = {
   title: PropTypes.string,
   img: PropTypes.string,
 }
