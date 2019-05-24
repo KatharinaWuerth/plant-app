@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LayoutMain from './LayoutMain'
 import GlobalStyles from '../misc/GlobalStyles'
 import PlantList from '../cards/PlantList'
 import Header from '../header/Header'
 import plantObjects from '../mockdata'
+import { setLocal, getLocal } from '../services'
 
 let plants = plantObjects
 
 export default function App() {
-  const [greenList, setGreenList] = useState(plants)
+  const [greenList, setGreenList] = useState(getLocal('greenList') || [])
+
+  useEffect(() => {
+    setLocal('greenList', greenList)
+  }, [greenList])
 
   function handleBookmark(id) {
     const newGreenList = [...greenList]
