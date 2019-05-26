@@ -9,7 +9,7 @@ import { setLocal, getLocal } from '../services'
 let plants = plantObjects
 
 export default function App() {
-  const [greenList, setGreenList] = useState(getLocal('greenList') || [])
+  const [greenList, setGreenList] = useState(getLocal('greenList') || plants)
 
   useEffect(() => {
     setLocal('greenList', greenList)
