@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import LayoutMain from './LayoutMain'
 import GlobalStyles from '../misc/GlobalStyles'
 import PlantList from '../cards/PlantList'
 import Header from '../header/Header'
 import plantObjects from '../mockdata'
 import { setLocal, getLocal } from '../services'
+import styled from 'styled-components'
 
 let plants = plantObjects
+
+const GridPlantList = styled.div`
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  height: 100vh;
+  background: linear-gradient(0deg, white 70%, #367860 30%);
+`
 
 export default function App() {
   const [greenList, setGreenList] = useState(getLocal('greenList') || plants)
@@ -23,12 +30,10 @@ export default function App() {
   }
 
   return (
-    <div>
+    <GridPlantList>
       <GlobalStyles />
       <Header />
-      <LayoutMain>
-        <PlantList plants={greenList} onBookmark={handleBookmark} />
-      </LayoutMain>
-    </div>
+      <PlantList plants={greenList} onBookmark={handleBookmark} />
+    </GridPlantList>
   )
 }
