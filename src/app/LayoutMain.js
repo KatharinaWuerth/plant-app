@@ -1,10 +1,13 @@
 import styled from 'styled-components'
+import React from 'react'
 
-export default styled.main`
+const StyledMain = styled.main`
   overflow: hidden;
   width: 100%;
-  height: 100vh;
   overflow-y: scroll;
   padding: 30px 0;
-  background: linear-gradient(0deg, white 70%, #367860 30%);
+  height: 100vh;
 `
+export function LayoutMain() {
+  return <StyledMain />
+}
