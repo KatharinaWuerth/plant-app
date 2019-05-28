@@ -5,6 +5,7 @@ import Header from '../header/Header'
 import plantObjects from '../mockdata'
 import { setLocal, getLocal } from '../services'
 import styled from 'styled-components'
+import ButtonList from '../filterPage/ButtonList'
 
 let plants = plantObjects
 
@@ -30,10 +31,13 @@ export default function App() {
   }
 
   return (
-    <GridPlantList>
-      <GlobalStyles />
-      <Header />
-      <PlantList plants={greenList} onBookmark={handleBookmark} />
-    </GridPlantList>
+    <div>
+      <ButtonList />
+      <GridPlantList>
+        <GlobalStyles />
+        <Header />
+        <PlantList plants={greenList} onBookmark={handleBookmark} />
+      </GridPlantList>
+    </div>
   )
 }
