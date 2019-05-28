@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import plantObjects from '../mockdata'
 import { setLocal, getLocal } from '../services'
 import styled from 'styled-components'
-import ButtonList from '../filterPage/ButtonList'
 import PlantPage from '../plantPage/PlantPage'
+import FilterPage from '../filterPage/FilterPage'
 
 let plants = plantObjects
 
@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <div>
-      <ButtonList />
+      <FilterPage />
       <PlantPage plants={greenList} onBookmark={handleBookmark} />
     </div>
   )

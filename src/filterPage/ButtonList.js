@@ -10,6 +10,7 @@ const StyledOptionButtonList = styled.section`
   padding: 20px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  overflow-y: scroll;
 `
 
 const StyledFilterButton = styled.button`
