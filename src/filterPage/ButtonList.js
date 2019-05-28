@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import OptionButton from './OptionButton'
+import { optionList } from '../app/App'
 
 const StyledOptionButtonList = styled.section`
   display: grid;
@@ -21,27 +22,6 @@ const StyledFilterButton = styled.button`
   background-color: #367860;
   color: white;
 `
-
-let optionList = [
-  'Wohnungspflanze',
-  'Gartenpflanze',
-  'heller Raum',
-  'dunkler Raum',
-  'pflegeleicht',
-  'grüner Daumen',
-  'große Pflanze',
-  'kleine Pflanze',
-  'schmale Pflanze',
-  'ausladende Pflanze',
-  'tierfreundlich',
-  'ungenießbar',
-  'hohe Luftfeuchtigkeit',
-  'niedrige Luftfeuchtigkeit',
-  'temperaturempfindlich',
-  'frostbeständig',
-  'allergikerfreundlich',
-  'allergen',
-]
 
 export default function ButtonList() {
   return (

@@ -1,20 +1,33 @@
 import React, { useState, useEffect } from 'react'
-import GlobalStyles from '../misc/GlobalStyles'
-import PlantList from '../cards/PlantList'
-import Header from '../header/Header'
 import plantObjects from '../mockdata'
 import { setLocal, getLocal } from '../services'
 import styled from 'styled-components'
 import ButtonList from '../filterPage/ButtonList'
+import PlantPage from '../plantPage/PlantPage'
 
 let plants = plantObjects
 
-const GridPlantList = styled.div`
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  height: 100vh;
-  background: linear-gradient(0deg, white 70%, #367860 30%);
-`
+let optionList = [
+  'Wohnungspflanze',
+  'Gartenpflanze',
+  'heller Raum',
+  'dunkler Raum',
+  'pflegeleicht',
+  'grüner Daumen',
+  'große Pflanze',
+  'kleine Pflanze',
+  'schmale Pflanze',
+  'ausladende Pflanze',
+  'tierfreundlich',
+  'ungenießbar',
+  'hohe Luftfeuchtigkeit',
+  'niedrige Luftfeuchtigkeit',
+  'temperaturempfindlich',
+  'frostbeständig',
+  'allergikerfreundlich',
+  'allergen',
+]
+export { optionList }
 
 export default function App() {
   const [greenList, setGreenList] = useState(getLocal('greenList') || plants)
@@ -33,11 +46,7 @@ export default function App() {
   return (
     <div>
       <ButtonList />
-      <GridPlantList>
-        <GlobalStyles />
-        <Header />
-        <PlantList plants={greenList} onBookmark={handleBookmark} />
-      </GridPlantList>
+      <PlantPage plants={greenList} onBookmark={handleBookmark} />
     </div>
   )
 }
