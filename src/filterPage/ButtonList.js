@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import OptionButton from './OptionButton'
 import { optionList } from '../app/App'
+import { NavLink } from 'react-router-dom'
 
 const StyledOptionButtonList = styled.section`
   display: grid;
@@ -13,7 +14,9 @@ const StyledOptionButtonList = styled.section`
   overflow-y: scroll;
 `
 
-const StyledFilterButton = styled.button`
+const StyledFilterButton = styled(NavLink)`
+  justify-self: center;
+  text-decoration: none;
   padding: 15px;
   border-radius: 7px;
   background: white;
@@ -26,13 +29,13 @@ const StyledFilterButton = styled.button`
 
 export default function ButtonList() {
   return (
-    <div>
-      <StyledOptionButtonList>
-        {optionList.map(option => (
-          <OptionButton value={option} />
-        ))}
-        <StyledFilterButton>Find your perfect plant</StyledFilterButton>
-      </StyledOptionButtonList>
-    </div>
+    <StyledOptionButtonList>
+      {optionList.map(option => (
+        <OptionButton value={option} />
+      ))}
+      <StyledFilterButton to="/matchedPlants">
+        Find your perfect plant
+      </StyledFilterButton>
+    </StyledOptionButtonList>
   )
 }

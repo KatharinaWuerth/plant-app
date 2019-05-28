@@ -4,6 +4,7 @@ import PlantList from './PlantList'
 import Header from '../header/Header'
 import GlobalStyles from '../misc/GlobalStyles'
 import FilterIcon from '../img/FilterIcon.png'
+import { NavLink } from 'react-router-dom'
 
 const GridPlantList = styled.div`
   display: grid;
@@ -17,7 +18,7 @@ const StyledFilterIcon = styled.img`
   width: 50px;
   padding: 12px;
 `
-const StyledFilterButton = styled.span`
+const StyledFilterButton = styled(NavLink)`
   display: block;
   height: 50px;
   width: 50px;
@@ -35,7 +36,7 @@ export default function PlantPage({ onBookmark, plants }) {
       <GlobalStyles />
       <Header />
       <PlantList plants={plants} onBookmark={onBookmark} />
-      <StyledFilterButton>
+      <StyledFilterButton to="/filter">
         <StyledFilterIcon src={FilterIcon} />
       </StyledFilterButton>
     </GridPlantList>

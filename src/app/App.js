@@ -45,9 +45,19 @@ export default function App() {
   }
 
   return (
-    <div>
-      <FilterPage />
-      <PlantPage plants={greenList} onBookmark={handleBookmark} />
-    </div>
+    <BrowserRouter>
+      <Route exact path="/filter" component={FilterPage} />
+      <Route
+        exact
+        path="/matchedPlants"
+        render={props => (
+          <PlantPage
+            plants={greenList}
+            onBookmark={handleBookmark}
+            {...props}
+          />
+        )}
+      />
+    </BrowserRouter>
   )
 }
