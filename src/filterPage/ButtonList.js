@@ -11,6 +11,17 @@ const StyledOptionButtonList = styled.section`
   grid-row-gap: 20px;
 `
 
+const StyledFilterButton = styled.button`
+  padding: 15px;
+  border-radius: 7px;
+  background: white;
+  box-shadow: 2px 2px 9px -1px darkgray;
+  margin: 15px;
+  grid-column: span 2;
+  background-color: #367860;
+  color: white;
+`
+
 let optionList = [
   'Wohnungspflanze',
   'Gartenpflanze',
@@ -34,10 +45,13 @@ let optionList = [
 
 export default function ButtonList() {
   return (
-    <StyledOptionButtonList>
-      {optionList.map(option => (
-        <OptionButton value={option} />
-      ))}
-    </StyledOptionButtonList>
+    <div>
+      <StyledOptionButtonList>
+        {optionList.map(option => (
+          <OptionButton value={option} />
+        ))}
+        <StyledFilterButton>Find your perfect plant</StyledFilterButton>
+      </StyledOptionButtonList>
+    </div>
   )
 }
