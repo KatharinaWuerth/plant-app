@@ -4,6 +4,7 @@ import { setLocal, getLocal } from '../services'
 import styled from 'styled-components'
 import PlantPage from '../plantPage/PlantPage'
 import FilterPage from '../filterPage/FilterPage'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 let plants = plantObjects
 
