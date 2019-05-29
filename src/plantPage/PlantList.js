@@ -11,10 +11,16 @@ const StyledPlantList = styled.section`
 `
 
 export default function PlantList({ plants, onBookmark }) {
+  console.log('plantlist', plants)
   return (
     <StyledPlantList>
       {plants.map(plant => (
-        <PlantCard key={plant._id} {...plant} onBookmark={onBookmark} />
+        <PlantCard
+          key={plant._id}
+          {...plant}
+          tags={plant.tagList}
+          onBookmark={onBookmark}
+        />
       ))}
     </StyledPlantList>
   )

@@ -1,21 +1,37 @@
 import React from 'react'
 import ButtonList from './ButtonList'
-import Header from '../header/Header'
 import GlobalStyles from '../misc/GlobalStyles'
 import styled from 'styled-components'
 
 const GridFilterPage = styled.div`
   display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: auto 1fr;
   height: 100vh;
 `
 
-export default function FilterPage() {
+const StyledFilterHeader = styled.header`
+  padding: 20px 60px;
+  color: white;
+  width: 100%;
+  background-color: #367860;
+  line-height: 1.5;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+`
+
+export default function FilterPage({ options, selection, onOptionSelect }) {
   return (
     <GridFilterPage>
       <GlobalStyles />
-      <Header />
-      <ButtonList />
+      <StyledFilterHeader>
+        What matches your lifestyle and expectations?
+      </StyledFilterHeader>
+      <ButtonList
+        options={options}
+        onOptionSelect={onOptionSelect}
+        selection={selection}
+      />
     </GridFilterPage>
   )
 }

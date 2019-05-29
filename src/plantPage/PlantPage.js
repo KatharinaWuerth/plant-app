@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 
 const GridPlantList = styled.div`
   display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: auto 1fr;
   height: 100vh;
   background: linear-gradient(0deg, white 70%, #367860 30%);
   position: relative;
@@ -23,18 +23,29 @@ const StyledFilterButton = styled(NavLink)`
   height: 50px;
   width: 50px;
   position: absolute;
-  bottom: 8%;
+  bottom: 4%;
   left: 9%;
   border-radius: 50%;
   background-color: white;
   box-shadow: 2px 2px 9px -1px darkgray;
 `
 
+const StyledPlantListHeader = styled.header`
+  padding: 20px 60px;
+  color: white;
+  width: 100%;
+  background-color: #367860;
+  line-height: 1.5;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+`
+
 export default function PlantPage({ onBookmark, plants }) {
   return (
     <GridPlantList>
       <GlobalStyles />
-      <Header />
+      <StyledPlantListHeader>Your matches</StyledPlantListHeader>
       <PlantList plants={plants} onBookmark={onBookmark} />
       <StyledFilterButton to="/filter">
         <StyledFilterIcon src={FilterIcon} />
@@ -42,8 +53,3 @@ export default function PlantPage({ onBookmark, plants }) {
     </GridPlantList>
   )
 }
-
-/*
- border-radius: 50%;
-  
-*/

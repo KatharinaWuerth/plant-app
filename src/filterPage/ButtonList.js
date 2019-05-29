@@ -1,41 +1,69 @@
 import React from 'react'
 import styled from 'styled-components'
 import OptionButton from './OptionButton'
-import { optionList } from '../app/App'
 import { NavLink } from 'react-router-dom'
 
-const StyledOptionButtonList = styled.section`
+const StyledOptionRow = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10px;
+`
+
+const OptionsGrid = styled.section`
+  display: grid;
   grid-template-rows: auto;
+  grid-gap: 20px;
   padding: 20px;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
   overflow-y: scroll;
 `
 
 const StyledFilterButton = styled(NavLink)`
   justify-self: center;
+  align-self: center;
   text-decoration: none;
   padding: 15px;
   border-radius: 7px;
   background: white;
   box-shadow: 2px 2px 9px -1px darkgray;
   margin: 15px;
-  grid-column: span 2;
   background-color: #367860;
   color: white;
 `
-
-export default function ButtonList() {
+//in options sind hier zwei Elemente drin (not-winter, winter)
+function OptionRow({ options, selection, onOptionSelect }) {
   return (
-    <StyledOptionButtonList>
-      {optionList.map(option => (
-        <OptionButton value={option} />
+    <StyledOptionRow>
+      {options.map(option => (
+        <OptionButton
+          active={selection.includes(option.id)} //legt nur fest, ob es active ist oder nicht
+          onClick={() => onOptionSelect(option.id)}
+        >
+          {option.label}
+        </OptionButton>
       ))}
-      <StyledFilterButton to="/matchedPlants">
+    </StyledOptionRow>
+  )
+}
+
+// in options hier sind 8 Elemente drin
+export default function ButtonList({
+  options,
+  selection,
+  onOptionSelect,
+  onFilterSelect,
+}) {
+  return (
+    <OptionsGrid>
+      {options.map(option => (
+        <OptionRow
+          options={option}
+          selection={selection}
+          onOptionSelect={onOptionSelect}
+        />
+      ))}
+      <StyledFilterButton to="/matchedPlants" onClick={onFilterSelect}>
         Find your perfect plant
       </StyledFilterButton>
-    </StyledOptionButtonList>
+    </OptionsGrid>
   )
 }
