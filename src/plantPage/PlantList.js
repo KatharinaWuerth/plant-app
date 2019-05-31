@@ -14,7 +14,12 @@ export default function PlantList({ plants, onBookmark }) {
   return (
     <StyledPlantList>
       {plants.map(plant => (
-        <PlantCard key={plant.title} {...plant} onBookmark={onBookmark} />
+        <PlantCard
+          key={plant._id}
+          {...plant}
+          tags={plant.tagList}
+          onBookmark={onBookmark}
+        />
       ))}
     </StyledPlantList>
   )

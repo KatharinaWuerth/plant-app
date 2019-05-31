@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Bookmark from './Bookmark'
+import TagList from './PlantTagList'
 
 const StyledCard = styled.section`
   background: white;
   border-radius: 0 0 7px 7px;
   box-shadow: 2px 2px 9px -1px darkgray;
   width: 70%;
-  margin-bottom: 20px;
+  margin: 20px 0;
 `
 
 const StyledPlantImage = styled.img`
@@ -44,6 +45,7 @@ export default function PlantCard({
   id,
   onBookmark,
   isBookmarked,
+  tags,
 }) {
   return (
     <StyledCard>
@@ -54,6 +56,7 @@ export default function PlantCard({
           <Bookmark onClick={onBookmark} id={id} isBookmarked={isBookmarked} />
         </StyledCardHeader>
         <StyledLine />
+        <TagList tags={tags} />
       </StyledTextbox>
     </StyledCard>
   )
