@@ -84,6 +84,20 @@ export default function App() {
     setSelection([...filtered, id])
   }
 
+  function getFilteredPlants() {
+    const plantList = plants
+    const filteredPlants = plantList.filter(plant =>
+      hasSelectedOption(plant.tagList, selection)
+    )
+    function hasSelectedOption(tagList, selection) {
+      const matchedOption = selection.filter(
+        option => tagList.indexOf(option) >= 0
+      )
+      return matchedOption.length > 0
+    }
+    return filteredPlants
+  }
+
   // Dinge sortieren nach Übereinstimmungen + farbig hervorheben, was übereinstimmt + Eigenschaften gut benennen und nicht mit not- ..
 
   return (
@@ -115,18 +129,4 @@ export default function App() {
       />
     </BrowserRouter>
   )
-
-  function getFilteredPlants() {
-    const plantList = plants
-    const filteredPlants = plantList.filter(plant =>
-      hasSelectedOption(plant.tagList, selection)
-    )
-    function hasSelectedOption(tagList, selection) {
-      const matchedOption = selection.filter(
-        option => tagList.indexOf(option) >= 0
-      )
-      return matchedOption.length > 0
-    }
-    return filteredPlants
-  }
 }
