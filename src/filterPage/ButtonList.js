@@ -46,12 +46,7 @@ function OptionRow({ options, selection, onOptionSelect }) {
 }
 
 // in options hier sind 8 Elemente drin
-export default function ButtonList({
-  options,
-  selection,
-  onOptionSelect,
-  onFilterSelect,
-}) {
+export default function ButtonList({ options, selection, onOptionSelect }) {
   return (
     <OptionsGrid>
       {options.map(option => (
@@ -61,7 +56,7 @@ export default function ButtonList({
           onOptionSelect={onOptionSelect}
         />
       ))}
-      <StyledFilterButton to="/matchedPlants" onClick={onFilterSelect}>
+      <StyledFilterButton to="/matchedPlants">
         Find your perfect plant
       </StyledFilterButton>
     </OptionsGrid>

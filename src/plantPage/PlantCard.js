@@ -47,7 +47,6 @@ export default function PlantCard({
   isBookmarked,
   tags,
 }) {
-  console.log('plantcard', tags)
   return (
     <StyledCard>
       <StyledPlantImage src={img} alt={alt} />

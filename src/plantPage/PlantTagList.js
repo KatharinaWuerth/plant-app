@@ -4,11 +4,15 @@ import styled from 'styled-components'
 const StyledTagList = styled.section`
   display: flex;
   flex-wrap: wrap;
+  margin-top: 10px;
 `
 
 const StyledTag = styled.span`
-  border: solid black 0.4px;
+  border: solid black 0.7px;
   border-radius: 7px;
+  padding: 3px;
+  margin: 3px;
+  font: small;
 `
 
 export default function TagList({ tags }) {

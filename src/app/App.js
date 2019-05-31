@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import plantObjects from '../mockdata'
 import { setLocal, getLocal } from '../services'
-import styled from 'styled-components'
 import PlantPage from '../plantPage/PlantPage'
 import FilterPage from '../filterPage/FilterPage'
 import { BrowserRouter, Route } from 'react-router-dom'
 
-let plants = plantObjects
+let mockPlants = plantObjects
 
 const optionList = [
   [
@@ -48,22 +47,22 @@ const optionList = [
 ]
 
 export default function App() {
-  const [greenList, setGreenList] = useState(getLocal('greenList') || plants)
-  const [selection, setSelection] = useState([])
+  const [plants, setPlants] = useState(getLocal('plants') || mockPlants)
+  const [selection, setSelection] = useState(getLocal('selection') || [])
 
   useEffect(() => {
-    console.log(selection)
+    setLocal('plants', plants)
+  }, [plants])
+
+  useEffect(() => {
+    setLocal('selection', selection)
   }, [selection])
 
-  useEffect(() => {
-    setLocal('greenList', greenList)
-  }, [greenList])
-
   function handleBookmark(id) {
-    const newGreenList = [...greenList]
-    const index = newGreenList.map(plant => plant.id).indexOf(id)
-    newGreenList[index].isBookmarked = !newGreenList[index].isBookmarked
-    setGreenList(newGreenList)
+    const newPlants = [...plants]
+    const index = newPlants.map(plant => plant.id).indexOf(id)
+    newPlants[index].isBookmarked = !newPlants[index].isBookmarked
+    setPlants(newPlants)
   }
 
   function handleOptionSelect(id) {
@@ -85,6 +84,8 @@ export default function App() {
     setSelection([...filtered, id])
   }
 
+  // Dinge sortieren nach Übereinstimmungen + farbig hervorheben, was übereinstimmt + Eigenschaften gut benennen und nicht mit not- ..
+
   return (
     <BrowserRouter>
       <Route
@@ -104,7 +105,9 @@ export default function App() {
         path="/matchedPlants"
         render={props => (
           <PlantPage
-            plants={greenList}
+            plants={
+              getFilteredPlants().length > 0 ? getFilteredPlants() : plants
+            }
             onBookmark={handleBookmark}
             {...props}
           />
@@ -112,4 +115,18 @@ export default function App() {
       />
     </BrowserRouter>
   )
+
+  function getFilteredPlants() {
+    const plantList = plants
+    const filteredPlants = plantList.filter(plant =>
+      hasSelectedOption(plant.tagList, selection)
+    )
+    function hasSelectedOption(tagList, selection) {
+      const matchedOption = selection.filter(
+        option => tagList.indexOf(option) >= 0
+      )
+      return matchedOption.length > 0
+    }
+    return filteredPlants
+  }
 }
