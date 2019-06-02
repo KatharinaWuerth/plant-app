@@ -10,15 +10,22 @@ const StyledPlantList = styled.section`
   overflow-y: scroll;
 `
 
-export default function PlantList({ plants, onBookmark }) {
+export default function PlantList({
+  plants,
+  onBookmark,
+  getOptionLabel,
+  selection,
+}) {
   return (
     <StyledPlantList>
       {plants.map(plant => (
         <PlantCard
           key={plant.id}
           {...plant}
+          getOptionLabel={getOptionLabel}
           tags={plant.tagList}
           onBookmark={onBookmark}
+          selection={selection}
         />
       ))}
     </StyledPlantList>

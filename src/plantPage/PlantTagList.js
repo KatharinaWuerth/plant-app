@@ -11,14 +11,17 @@ const StyledTag = styled.span`
   border-radius: 7px;
   padding: 3px;
   margin: 3px;
-  font: small;
+  font-size: small;
+  background: ${props => (props.active ? '#CBE1C2' : 'white')};
 `
 
-export default function TagList({ tags }) {
+export default function TagList({ tags, getOptionLabel, selection }) {
   return (
     <StyledTagList>
       {tags.map(tag => (
-        <StyledTag key={tag}>{tag}</StyledTag>
+        <StyledTag key={tag} active={selection.includes(tag)}>
+          {getOptionLabel(tag)}
+        </StyledTag>
       ))}
     </StyledTagList>
   )

@@ -148,6 +148,15 @@ export default function App() {
     return filteredPlants
   }
 
+  // übergebene tag entspricht der option.id
+  function getOptionLabel(tag) {
+    const optionGroupArray = getOptionGroupsByOptionId(tag)
+    const optionArray = optionGroupArray[0].options.filter(
+      option => option.id === tag
+    )
+    return optionArray[0].label
+  }
+
   // Dinge sortieren nach Übereinstimmungen + farbig hervorheben, was übereinstimmt + Eigenschaften gut benennen und nicht mit not- ..
 
   return (
@@ -174,6 +183,8 @@ export default function App() {
             }
             onBookmark={handleBookmark}
             {...props}
+            getOptionLabel={getOptionLabel}
+            selection={selection}
           />
         )}
       />

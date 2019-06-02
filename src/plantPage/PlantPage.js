@@ -40,12 +40,22 @@ const StyledPlantListHeader = styled.header`
   text-align: center;
 `
 
-export default function PlantPage({ onBookmark, plants }) {
+export default function PlantPage({
+  onBookmark,
+  plants,
+  getOptionLabel,
+  selection,
+}) {
   return (
     <GridPlantList>
       <GlobalStyles />
       <StyledPlantListHeader>Your matches</StyledPlantListHeader>
-      <PlantList plants={plants} onBookmark={onBookmark} />
+      <PlantList
+        plants={plants}
+        onBookmark={onBookmark}
+        getOptionLabel={getOptionLabel}
+        selection={selection}
+      />
       <StyledFilterButton to="/filter">
         <StyledFilterIcon src={FilterIcon} />
       </StyledFilterButton>

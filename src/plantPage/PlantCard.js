@@ -44,6 +44,8 @@ export default function PlantCard({
   onBookmark,
   isBookmarked,
   tags,
+  getOptionLabel,
+  selection,
 }) {
   return (
     <StyledCard>
@@ -54,7 +56,11 @@ export default function PlantCard({
           <Bookmark onClick={onBookmark} id={id} isBookmarked={isBookmarked} />
         </StyledCardHeader>
         <StyledLine />
-        <TagList tags={tags} />
+        <TagList
+          tags={tags}
+          getOptionLabel={getOptionLabel}
+          selection={selection}
+        />
       </StyledTextbox>
     </StyledCard>
   )
