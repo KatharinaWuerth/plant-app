@@ -6,6 +6,7 @@ const OptionButton = styled.button`
   background: ${props => (props.active ? '#CBE1C2' : 'white')};
   font-size: medium;
   box-shadow: 2px 2px 9px -1px darkgray;
+  outline: none !important;
 `
 
 export default OptionButton

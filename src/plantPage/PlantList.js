@@ -15,7 +15,7 @@ export default function PlantList({ plants, onBookmark }) {
     <StyledPlantList>
       {plants.map(plant => (
         <PlantCard
-          key={plant._id}
+          key={plant.id}
           {...plant}
           tags={plant.tagList}
           onBookmark={onBookmark}

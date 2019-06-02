@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const StyledTagList = styled.section`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
 `
 
 const StyledTag = styled.span`

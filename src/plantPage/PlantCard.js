@@ -29,13 +29,11 @@ const StyledCardHeader = styled.div`
 const StyledTextbox = styled.section`
   padding: 20px;
 `
-const StyledLine = styled.hr`
-  border: 1.5px solid #cbe1c2;
-  border-radius: 7px;
-  width: 30%;
-  display: inline-flex;
-  text-align: left;
-  margin: 0;
+const StyledLine = styled.div`
+  background-color: #cbe1c2;
+  height: 3px;
+  border-radius: 1.5px;
+  margin: 10px 0;
 `
 
 export default function PlantCard({

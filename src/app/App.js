@@ -4,46 +4,75 @@ import { setLocal, getLocal } from '../services'
 import PlantPage from '../plantPage/PlantPage'
 import FilterPage from '../filterPage/FilterPage'
 import { BrowserRouter, Route } from 'react-router-dom'
+import uid from 'uid'
 
 let mockPlants = plantObjects
 
+// Liste von OptionGroups
 const optionList = [
-  [
-    { id: 'room', label: 'Wohnungspflanze' },
-    { id: 'not-room', label: 'Gartenpflanze' },
-  ],
-  [
-    { id: 'not-dark', label: 'heller Raum' },
-    { id: 'dark', label: 'dunkler Raum' },
-  ],
-  [
-    { id: 'not-moist', label: 'niedrige Luftfeuchtigkeit' },
-    { id: 'moist', label: 'hohe Luftfeuchtigkeit' },
-  ],
-  [
-    { id: 'easy', label: 'pflegeleicht' },
-    { id: 'not-easy', label: 'grüner Daumen' },
-  ],
-  [
-    { id: 'not-big', label: 'kleine Pflanze' },
-    { id: 'big', label: 'große Pflanze' },
-  ],
-  [
-    { id: 'not-wide', label: 'schmale Pflanze' },
-    { id: 'wide', label: 'ausladende Pflanze' },
-  ],
-  [
-    { id: 'not-toxic', label: 'tierfreundlich' },
-    { id: 'toxic', label: 'ungenießbar' },
-  ],
-  [
-    { id: 'winter', label: 'frotsbeständig' },
-    { id: 'not-winter', label: 'temperaturempfindlich' },
-  ],
-  [
-    { id: 'not-allergenic', label: 'allergikerfreundlich' },
-    { id: 'allergenic', label: 'allergen' },
-  ],
+  {
+    id: uid(),
+    options: [
+      { id: 'room', label: 'Wohnungspflanze' },
+      { id: 'not-room', label: 'Gartenpflanze' },
+    ],
+  },
+  {
+    id: uid(),
+    options: [
+      { id: 'not-dark', label: 'heller Raum' },
+      { id: 'dark', label: 'dunkler Raum' },
+    ],
+  },
+  {
+    id: uid(),
+    options: [
+      { id: 'not-moist', label: 'niedrige Luftfeuchtigkeit' },
+      { id: 'moist', label: 'hohe Luftfeuchtigkeit' },
+    ],
+  },
+  {
+    id: uid(),
+    options: [
+      { id: 'easy', label: 'pflegeleicht' },
+      { id: 'not-easy', label: 'grüner Daumen' },
+    ],
+  },
+  {
+    id: uid(),
+    options: [
+      { id: 'not-big', label: 'kleine Pflanze' },
+      { id: 'big', label: 'große Pflanze' },
+    ],
+  },
+  {
+    id: uid(),
+    options: [
+      { id: 'not-wide', label: 'schmale Pflanze' },
+      { id: 'wide', label: 'ausladende Pflanze' },
+    ],
+  },
+  {
+    id: uid(),
+    options: [
+      { id: 'not-toxic', label: 'tierfreundlich' },
+      { id: 'toxic', label: 'ungenießbar' },
+    ],
+  },
+  {
+    id: uid(),
+    options: [
+      { id: 'winter', label: 'frotsbeständig' },
+      { id: 'not-winter', label: 'temperaturempfindlich' },
+    ],
+  },
+  {
+    id: uid(),
+    options: [
+      { id: 'not-allergenic', label: 'allergikerfreundlich' },
+      { id: 'allergenic', label: 'allergen' },
+    ],
+  },
 ]
 
 export default function App() {
@@ -65,23 +94,44 @@ export default function App() {
     setPlants(newPlants)
   }
 
+  function doesOptionGroupIncludeOption(optionGroup, optionId) {
+    return (
+      optionGroup.options.filter(option => option.id === optionId).length !== 0
+    )
+  }
+
+  function getOptionGroupsByOptionId(id) {
+    const containingOptionGroups = optionList.filter(optionGroup =>
+      doesOptionGroupIncludeOption(optionGroup, id)
+    )
+    return containingOptionGroups
+  }
+
   function handleOptionSelect(id) {
-    // item is already seleted -> just remove
+    // item is already seleted -> just remove/deselect clicked option
     if (selection.includes(id)) {
-      setSelection(selection.filter(item => item !== id))
+      const newSelection = selection.filter(
+        selectedOptionId => selectedOptionId !== id
+      )
+      setSelection(newSelection)
       return
     }
 
-    // check if item is a 'not'-item, remove opposite + add item
-    if (id.includes('not')) {
-      const partId = id.split('-')[1]
-      const filtered = selection.filter(item => item !== partId)
-      setSelection([...filtered, id])
-      return
-    }
-    // remove possible 'not'-item + add item
-    const filtered = selection.filter(item => item !== `not-${id}`)
-    setSelection([...filtered, id])
+    // alle options der selben optiongroup deselectieren
+    const containingOptionGroups = getOptionGroupsByOptionId(id)
+    const containingOptionGroup = containingOptionGroups[0] // Zur Zeit kann und muss immer nur eine Gruppe drin sein.
+
+    const optionsToDeselect = containingOptionGroup.options.map(
+      option => option.id
+    )
+
+    // neue selection Liste ohne die options der betätigten OptionGroup
+    const newSelection = selection.filter(
+      optionId => !optionsToDeselect.includes(optionId)
+    )
+
+    // selektieren der übergebenen id
+    setSelection([...newSelection, id])
   }
 
   function getFilteredPlants() {
@@ -91,7 +141,7 @@ export default function App() {
     )
     function hasSelectedOption(tagList, selection) {
       const matchedOption = selection.filter(
-        option => tagList.indexOf(option) >= 0
+        option => tagList.indexOf(option) !== -1
       )
       return matchedOption.length > 0
     }
@@ -107,7 +157,7 @@ export default function App() {
         path="/filter"
         render={props => (
           <FilterPage
-            options={optionList}
+            optionList={optionList}
             onOptionSelect={handleOptionSelect}
             selection={selection}
             {...props}

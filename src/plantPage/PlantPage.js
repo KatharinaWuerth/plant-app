@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import PlantList from './PlantList'
-import Header from '../header/Header'
 import GlobalStyles from '../misc/GlobalStyles'
 import FilterIcon from '../img/FilterIcon.png'
 import { NavLink } from 'react-router-dom'
