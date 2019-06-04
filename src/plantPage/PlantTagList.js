@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const StyledTagList = styled.section`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
 `
 
 const StyledTag = styled.span`
@@ -12,14 +11,17 @@ const StyledTag = styled.span`
   border-radius: 7px;
   padding: 3px;
   margin: 3px;
-  font: small;
+  font-size: 0.85rem;
+  background: ${props => (props.active ? '#CBE1C2' : 'white')};
 `
 
-export default function TagList({ tags }) {
+export default function TagList({ tags, getOptionLabel, selection }) {
   return (
     <StyledTagList>
       {tags.map(tag => (
-        <StyledTag key={tag}>{tag}</StyledTag>
+        <StyledTag key={tag} active={selection.includes(tag)}>
+          {getOptionLabel(tag)}
+        </StyledTag>
       ))}
     </StyledTagList>
   )

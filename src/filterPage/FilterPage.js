@@ -20,7 +20,7 @@ const StyledFilterHeader = styled.header`
   text-align: center;
 `
 
-export default function FilterPage({ options, selection, onOptionSelect }) {
+export default function FilterPage({ optionList, selection, onOptionSelect }) {
   return (
     <GridFilterPage>
       <GlobalStyles />
@@ -28,7 +28,7 @@ export default function FilterPage({ options, selection, onOptionSelect }) {
         What matches your lifestyle and expectations?
       </StyledFilterHeader>
       <ButtonList
-        options={options}
+        optionList={optionList}
         onOptionSelect={onOptionSelect}
         selection={selection}
       />
