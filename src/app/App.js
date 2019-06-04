@@ -131,16 +131,36 @@ export default function App() {
   function getFilteredPlants() {
     const plantList = plants
     const filteredPlants = plantList.filter(plant =>
-      hasSelectedOption(plant.tagList, selection)
+      hasSelectedOption(plant.tagList)
     )
-    function hasSelectedOption(tagList, selection) {
-      const matchedOption = selection.filter(
-        option => tagList.indexOf(option) !== -1
-      )
+    function hasSelectedOption(tagList) {
+      const matchedOption = getMatchedOptions(tagList)
       return matchedOption.length > 0
     }
     return filteredPlants
   }
+
+  function getMatchedOptions(tagList) {
+    return selection.filter(option => tagList.indexOf(option) !== -1)
+  }
+
+  function getMatchedNum(plant) {
+    return getMatchedOptions(plant.tagList).length
+  }
+
+  function getSortedFilteredPlants() {
+    const filteredPlants = getFilteredPlants()
+    const newPlantsWithMatchNum = filteredPlants.map(plant => ({
+      ...plant,
+      matchNum: getMatchedNum(plant),
+    })) //erweitere Objekt um matchNum (key:value)
+    const sortedFilteredPlants = newPlantsWithMatchNum.sort(
+      (a, b) => b.matchNum - a.matchNum
+    )
+
+    return sortedFilteredPlants
+  }
+  getSortedFilteredPlants()
 
   function getOptionLabel(tag) {
     const optionGroupArray = getOptionGroupsByOptionId(tag)
@@ -170,7 +190,9 @@ export default function App() {
         render={props => (
           <PlantPage
             plants={
-              getFilteredPlants().length > 0 ? getFilteredPlants() : plants
+              getSortedFilteredPlants().length > 0
+                ? getSortedFilteredPlants()
+                : plants
             }
             onBookmark={handleBookmark}
             {...props}
