@@ -11,7 +11,7 @@ const StyledTag = styled.span`
   border-radius: 7px;
   padding: 3px;
   margin: 3px;
-  font-size: small;
+  font-size: 0.85rem;
   background: ${props => (props.active ? '#CBE1C2' : 'white')};
 `
 

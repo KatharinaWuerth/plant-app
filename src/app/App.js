@@ -100,38 +100,32 @@ export default function App() {
     )
   }
 
-  function getOptionGroupsByOptionId(id) {
+  function getOptionGroupsByOptionId(optionId) {
     const containingOptionGroups = optionList.filter(optionGroup =>
-      doesOptionGroupIncludeOption(optionGroup, id)
+      doesOptionGroupIncludeOption(optionGroup, optionId)
     )
     return containingOptionGroups
   }
 
-  function handleOptionSelect(id) {
-    // item is already seleted -> just remove/deselect clicked option
-    if (selection.includes(id)) {
+  function handleOptionSelect(optionId) {
+    if (selection.includes(optionId)) {
       const newSelection = selection.filter(
-        selectedOptionId => selectedOptionId !== id
+        selectedOptionId => selectedOptionId !== optionId
       )
       setSelection(newSelection)
       return
     }
 
-    // alle options der selben optiongroup deselectieren
-    const containingOptionGroups = getOptionGroupsByOptionId(id)
-    const containingOptionGroup = containingOptionGroups[0] // Zur Zeit kann und muss immer nur eine Gruppe drin sein.
-
+    const containingOptionGroups = getOptionGroupsByOptionId(optionId)
+    const containingOptionGroup = containingOptionGroups[0]
     const optionsToDeselect = containingOptionGroup.options.map(
       option => option.id
     )
 
-    // neue selection Liste ohne die options der betätigten OptionGroup
     const newSelection = selection.filter(
       optionId => !optionsToDeselect.includes(optionId)
     )
-
-    // selektieren der übergebenen id
-    setSelection([...newSelection, id])
+    setSelection([...newSelection, optionId])
   }
 
   function getFilteredPlants() {
@@ -148,7 +142,6 @@ export default function App() {
     return filteredPlants
   }
 
-  // übergebene tag entspricht der option.id
   function getOptionLabel(tag) {
     const optionGroupArray = getOptionGroupsByOptionId(tag)
     const optionArray = optionGroupArray[0].options.filter(
@@ -156,8 +149,6 @@ export default function App() {
     )
     return optionArray[0].label
   }
-
-  // Dinge sortieren nach Übereinstimmungen + farbig hervorheben, was übereinstimmt + Eigenschaften gut benennen und nicht mit not- ..
 
   return (
     <BrowserRouter>

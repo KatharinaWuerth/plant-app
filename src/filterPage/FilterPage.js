@@ -31,7 +31,6 @@ export default function FilterPage({ optionList, selection, onOptionSelect }) {
         optionList={optionList}
         onOptionSelect={onOptionSelect}
         selection={selection}
-        key={'filterOptions'}
       />
     </GridFilterPage>
   )
