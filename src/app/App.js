@@ -153,14 +153,13 @@ export default function App() {
     const newPlantsWithMatchNum = filteredPlants.map(plant => ({
       ...plant,
       matchNum: getMatchedNum(plant),
-    })) //erweitere Objekt um matchNum (key:value)
+    }))
     const sortedFilteredPlants = newPlantsWithMatchNum.sort(
       (a, b) => b.matchNum - a.matchNum
     )
 
     return sortedFilteredPlants
   }
-  getSortedFilteredPlants()
 
   function getOptionLabel(tag) {
     const optionGroupArray = getOptionGroupsByOptionId(tag)
