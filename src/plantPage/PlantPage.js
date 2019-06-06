@@ -3,41 +3,28 @@ import styled from 'styled-components'
 import PlantList from './PlantList'
 import GlobalStyles from '../misc/GlobalStyles'
 import FilterIcon from '../img/FilterIcon.png'
-import { NavLink } from 'react-router-dom'
-
-const GridPlantList = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr;
-  height: 100vh;
-  background: linear-gradient(0deg, white 70%, #367860 30%);
-  position: relative;
-`
+import StyledHeader from '../common/StyledHeader'
+import GridList from '../common/GridList'
+import StyledNavButton from '../common/StyledNavButton'
+import BookmarkActive from '../img/BookmarkActive.png'
 
 const StyledFilterIcon = styled.img`
   width: 50px;
   padding: 12px;
 `
-const StyledFilterButton = styled(NavLink)`
-  display: block;
-  height: 50px;
+
+const StyledBookmarkActive = styled.img`
   width: 50px;
-  position: absolute;
-  bottom: 4%;
-  left: 9%;
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 2px 2px 9px -1px darkgray;
+  padding: 10px;
 `
 
-const StyledPlantListHeader = styled.header`
-  padding: 20px 60px;
-  color: white;
-  width: 100%;
-  background-color: #367860;
-  line-height: 1.5;
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.5rem;
-  text-align: center;
+const StyledNavFavButton = styled(StyledNavButton)`
+  bottom: 4%;
+  right: 9%;
+`
+const StyledNavFilterButton = styled(StyledNavButton)`
+  bottom: 4%;
+  left: 9%;
 `
 
 export default function PlantPage({
@@ -47,18 +34,21 @@ export default function PlantPage({
   selection,
 }) {
   return (
-    <GridPlantList>
+    <GridList>
       <GlobalStyles />
-      <StyledPlantListHeader>Unsere Vorschläge</StyledPlantListHeader>
+      <StyledHeader>Unsere Vorschläge</StyledHeader>
       <PlantList
         plants={plants}
         onBookmark={onBookmark}
         getOptionLabel={getOptionLabel}
         selection={selection}
       />
-      <StyledFilterButton to="/filter">
+      <StyledNavFilterButton to="/filter">
         <StyledFilterIcon src={FilterIcon} />
-      </StyledFilterButton>
-    </GridPlantList>
+      </StyledNavFilterButton>
+      <StyledNavFavButton to="/favPlants">
+        <StyledBookmarkActive src={BookmarkActive} />
+      </StyledNavFavButton>
+    </GridList>
   )
 }

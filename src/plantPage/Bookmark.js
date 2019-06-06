@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import IconBookmark from '../img/BookmarkDarkGreen6.png'
+import IconBookmark from '../img/BookmarkDarkGreen.png'
 import IconBookmarkActive from '../img/BookmarkActive.png'
 
 const StyledBookmarkImage = styled.img`
-  width: 9%;
-  height: 9%;
+  width: 10%;
+  height: 10%;
 `
 
 export default function Bookmark({ onClick, isBookmarked, id }) {

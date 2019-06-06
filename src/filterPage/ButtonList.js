@@ -29,13 +29,13 @@ const StyledFilterButton = styled(NavLink)`
   background-color: #367860;
   color: white;
 `
-//in options sind hier zwei Elemente drin (not-winter, winter)
+
 function OptionRow({ optionGroup, selection, onOptionSelect }) {
   return (
     <StyledOptionRow>
       {optionGroup.map(option => (
         <OptionButton
-          active={selection.includes(option.id)} //legt nur fest, ob es active ist oder nicht
+          active={selection.includes(option.id)}
           onClick={() => onOptionSelect(option.id)}
           key={option.id}
         >
@@ -46,7 +46,6 @@ function OptionRow({ optionGroup, selection, onOptionSelect }) {
   )
 }
 
-// in options hier sind 8 Elemente drin
 export default function ButtonList({ optionList, selection, onOptionSelect }) {
   return (
     <OptionsGrid>
