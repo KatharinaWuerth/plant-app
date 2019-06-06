@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PlantList from './PlantList'
-import GlobalStyles from '../misc/GlobalStyles'
+
 import FilterIcon from '../img/FilterIcon.png'
 import StyledHeader from '../common/StyledHeader'
 import GridList from '../common/GridList'
@@ -35,7 +35,6 @@ export default function PlantPage({
 }) {
   return (
     <GridList>
-      <GlobalStyles />
       <StyledHeader>Unsere Vorschläge</StyledHeader>
       <PlantList
         plants={plants}

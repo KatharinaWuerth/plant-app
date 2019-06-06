@@ -6,6 +6,7 @@ import FilterPage from '../filterPage/FilterPage'
 import { BrowserRouter, Route } from 'react-router-dom'
 import uid from 'uid'
 import FavPage from './FavPage'
+import GlobalStyles from '../misc/GlobalStyles'
 
 let mockPlants = plantObjects
 
@@ -180,6 +181,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <GlobalStyles />
       <Route
         exact
         path="/filter"

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import StyledHeader from '../common/StyledHeader'
 import PlantList from '../plantPage/PlantList'
-import GlobalStyles from '../misc/GlobalStyles'
+
 import GridList from '../common/GridList'
 import StyledNavButton from '../common/StyledNavButton'
 import BackIcon from '../img/BackArrow.png'
@@ -23,7 +23,6 @@ export default function FavPage({
 }) {
   return (
     <GridList>
-      <GlobalStyles />
       <StyledHeader>Deine Auswahl</StyledHeader>
       <PlantList
         plants={plants}
