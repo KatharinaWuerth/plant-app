@@ -5,6 +5,8 @@ import PlantPage from '../plantPage/PlantPage'
 import FilterPage from '../filterPage/FilterPage'
 import { BrowserRouter, Route } from 'react-router-dom'
 import uid from 'uid'
+import FavPage from './FavPage'
+import GlobalStyles from '../misc/GlobalStyles'
 
 let mockPlants = plantObjects
 
@@ -161,6 +163,14 @@ export default function App() {
     return sortedFilteredPlants
   }
 
+  function getFavSortedFilteredPlants() {
+    const sortedFilteredPlants = getSortedFilteredPlants()
+    const favSortedFileredPlants = sortedFilteredPlants.filter(
+      plant => plant.isBookmarked
+    )
+    return favSortedFileredPlants
+  }
+
   function getOptionLabel(tag) {
     const optionGroupArray = getOptionGroupsByOptionId(tag)
     const optionArray = optionGroupArray[0].options.filter(
@@ -171,6 +181,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <GlobalStyles />
       <Route
         exact
         path="/filter"
@@ -193,6 +204,19 @@ export default function App() {
                 ? getSortedFilteredPlants()
                 : plants
             }
+            onBookmark={handleBookmark}
+            {...props}
+            getOptionLabel={getOptionLabel}
+            selection={selection}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/favPlants"
+        render={props => (
+          <FavPage
+            plants={getFavSortedFilteredPlants()}
             onBookmark={handleBookmark}
             {...props}
             getOptionLabel={getOptionLabel}
