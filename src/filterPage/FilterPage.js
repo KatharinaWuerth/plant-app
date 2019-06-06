@@ -25,7 +25,7 @@ export default function FilterPage({ optionList, selection, onOptionSelect }) {
     <GridFilterPage>
       <GlobalStyles />
       <StyledFilterHeader>
-        What matches your lifestyle and expectations?
+        Was sind deine Wünsche und Voraussetzungen?
       </StyledFilterHeader>
       <ButtonList
         optionList={optionList}

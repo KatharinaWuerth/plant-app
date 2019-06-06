@@ -49,7 +49,7 @@ export default function PlantPage({
   return (
     <GridPlantList>
       <GlobalStyles />
-      <StyledPlantListHeader>Your matches</StyledPlantListHeader>
+      <StyledPlantListHeader>Unsere Vorschläge</StyledPlantListHeader>
       <PlantList
         plants={plants}
         onBookmark={onBookmark}
