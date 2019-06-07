@@ -1,5 +1,5 @@
 import React from 'react'
-import PlantCard from './PlantCard'
+import { PlantCard } from './PlantCard'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -20,6 +20,7 @@ export default function PlantList({
     <StyledPlantList>
       {plants.map(plant => (
         <PlantCard
+          to="detailPlant"
           key={plant.id}
           {...plant}
           getOptionLabel={getOptionLabel}

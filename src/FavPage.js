@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import StyledHeader from '../common/StyledHeader'
-import PlantList from '../plantPage/PlantList'
-
-import GridList from '../common/GridList'
-import StyledNavButton from '../common/StyledNavButton'
-import BackIcon from '../img/BackArrow.png'
+import StyledHeader from './common/StyledHeader'
+import PlantList from './plantPage/PlantList'
+import GridList from './common/GridList'
+import StyledNavButton from './common/StyledNavButton'
+import BackIcon from './img/BackArrow.png'
 
 const StyledIcon = styled.img`
   width: 50px;

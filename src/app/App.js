@@ -5,8 +5,9 @@ import PlantPage from '../plantPage/PlantPage'
 import FilterPage from '../filterPage/FilterPage'
 import { BrowserRouter, Route } from 'react-router-dom'
 import uid from 'uid'
-import FavPage from './FavPage'
+import FavPage from '../FavPage'
 import GlobalStyles from '../misc/GlobalStyles'
+import DetailPage from '../detailPage/DetailPage'
 
 let mockPlants = plantObjects
 
@@ -221,6 +222,19 @@ export default function App() {
             {...props}
             getOptionLabel={getOptionLabel}
             selection={selection}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/detailPage/:id"
+        render={props => (
+          <DetailPage
+            getOptionLabel={getOptionLabel}
+            selection={selection}
+            onBookmark={handleBookmark}
+            plants={plants}
+            {...props}
           />
         )}
       />

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Bookmark from './Bookmark'
 import TagList from './PlantTagList'
+import { NavLink } from 'react-router-dom'
 
 const StyledCard = styled.section`
   background: white;
@@ -12,31 +13,33 @@ const StyledCard = styled.section`
   margin: 20px 0;
 `
 
-const StyledPlantImage = styled.img`
+export const StyledPlantImage = styled.img`
   width: 100%;
 `
 
-const StyledTitle = styled.h3`
+export const StyledTitle = styled.h3`
   margin-block-end: 0;
   margin-block-start: 0;
 `
-const StyledCardHeader = styled.div`
+export const StyledCardHeader = styled.header`
   display: inline-flex;
   justify-content: space-between;
   width: 100%;
 `
 
-const StyledTextbox = styled.section`
+export const StyledTextbox = styled.section`
   padding: 20px;
 `
-const StyledLine = styled.div`
+export const StyledLine = styled.div`
   background-color: #cbe1c2;
   height: 3px;
   border-radius: 1.5px;
   margin: 10px 0;
 `
 
-export default function PlantCard({
+const Container = styled(NavLink)``
+
+export function PlantCard({
   img,
   alt,
   title,
@@ -49,7 +52,9 @@ export default function PlantCard({
 }) {
   return (
     <StyledCard>
-      <StyledPlantImage src={img} alt={alt} />
+      <Container to={'/detailPage/' + id}>
+        <StyledPlantImage src={img} alt={alt} />
+      </Container>
       <StyledTextbox>
         <StyledCardHeader>
           <StyledTitle>{title}</StyledTitle>
