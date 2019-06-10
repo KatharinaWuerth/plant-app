@@ -1,5 +1,5 @@
 import React from 'react'
-import PlantCard from './PlantCard'
+import { PlantCard } from './PlantCard'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 

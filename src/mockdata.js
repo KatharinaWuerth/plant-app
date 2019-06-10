@@ -5,7 +5,7 @@ const plantObjects = [
   {
     title: 'test1',
     img: testPicture,
-    id: uid(),
+    id: '11',
     isBookmarked: false,
     tagList: [
       'room',
@@ -18,6 +18,8 @@ const plantObjects = [
       'not-winter',
       'allergenic',
     ],
+    description:
+      'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
   },
   {
     title: 'test2',
@@ -35,6 +37,8 @@ const plantObjects = [
       'winter',
       'not-allergenic',
     ],
+    description:
+      'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
   },
   {
     title: 'test3',
@@ -52,6 +56,8 @@ const plantObjects = [
       'winter',
       'not-allergenic',
     ],
+    description:
+      'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
   },
   {
     title: 'test4',
@@ -69,6 +75,8 @@ const plantObjects = [
       'not-winter',
       'allergenic',
     ],
+    description:
+      'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
   },
   {
     title: 'test5',
@@ -86,6 +94,8 @@ const plantObjects = [
       'not-winter',
       'allergenic',
     ],
+    description:
+      'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
   },
 ]
 

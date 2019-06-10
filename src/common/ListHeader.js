@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StyledListHeader = styled.header`
+const ListHeader = styled.header`
   padding: 20px 60px;
   color: white;
   width: 100%;
@@ -11,4 +11,4 @@ const StyledListHeader = styled.header`
   text-align: center;
 `
 
-export default StyledListHeader
+export default ListHeader
