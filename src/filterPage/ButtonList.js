@@ -57,7 +57,7 @@ export default function ButtonList({ optionList, selection, onOptionSelect }) {
           onOptionSelect={onOptionSelect}
         />
       ))}
-      <StyledFilterButton to="/matchedPlants">
+      <StyledFilterButton to="/matched">
         Finde deine perfekte Pflanze
       </StyledFilterButton>
     </OptionsGrid>

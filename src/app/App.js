@@ -197,7 +197,7 @@ export default function App() {
       />
       <Route
         exact
-        path="/matchedPlants"
+        path="/matched"
         render={props => (
           <PlantPage
             plants={
@@ -214,7 +214,7 @@ export default function App() {
       />
       <Route
         exact
-        path="/favPlants"
+        path="/favourite"
         render={props => (
           <FavPage
             plants={getFavSortedFilteredPlants()}
@@ -227,7 +227,7 @@ export default function App() {
       />
       <Route
         exact
-        path="/detailPage/:id"
+        path="/detail/:id"
         render={props => (
           <DetailPage
             getOptionLabel={getOptionLabel}

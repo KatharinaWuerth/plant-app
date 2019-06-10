@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import PlantList from './PlantList'
 
 import FilterIcon from '../img/FilterIcon.png'
-import StyledHeader from '../common/StyledHeader'
+import ListHeader from '../common/ListHeader'
 import GridList from '../common/GridList'
-import StyledNavButton from '../common/StyledNavButton'
+import NavButton from '../common/NavButton'
 import BookmarkActive from '../img/BookmarkActive.png'
 
 const StyledFilterIcon = styled.img`
@@ -18,11 +18,11 @@ const StyledBookmarkActive = styled.img`
   padding: 10px;
 `
 
-const StyledNavFavButton = styled(StyledNavButton)`
+const StyledNavFavButton = styled(NavButton)`
   bottom: 4%;
   right: 9%;
 `
-const StyledNavFilterButton = styled(StyledNavButton)`
+const StyledNavFilterButton = styled(NavButton)`
   bottom: 4%;
   left: 9%;
 `
@@ -35,7 +35,7 @@ export default function PlantPage({
 }) {
   return (
     <GridList>
-      <StyledHeader>Unsere Vorschläge</StyledHeader>
+      <ListHeader>Unsere Vorschläge</ListHeader>
       <PlantList
         plants={plants}
         onBookmark={onBookmark}
@@ -45,7 +45,7 @@ export default function PlantPage({
       <StyledNavFilterButton to="/filter">
         <StyledFilterIcon src={FilterIcon} />
       </StyledNavFilterButton>
-      <StyledNavFavButton to="/favPlants">
+      <StyledNavFavButton to="/favourite">
         <StyledBookmarkActive src={BookmarkActive} />
       </StyledNavFavButton>
     </GridList>

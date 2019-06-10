@@ -20,7 +20,6 @@ export default function PlantList({
     <StyledPlantList>
       {plants.map(plant => (
         <PlantCard
-          to="detailPlant"
           key={plant.id}
           {...plant}
           getOptionLabel={getOptionLabel}

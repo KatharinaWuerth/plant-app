@@ -1,20 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-  StyledPlantImage,
-  StyledTextbox,
-  StyledTitle,
-  StyledCardHeader,
-  StyledLine,
-} from '../plantPage/PlantCard'
+  Card,
+  CardPlantImage,
+  CardTextbox,
+  CardTitle,
+  CardHeader,
+  CardLine,
+} from '../common/CardComponents'
 import Bookmark from '../plantPage/Bookmark'
 import TagList from '../plantPage/PlantTagList'
 
-const StyledDetailCard = styled.section`
+const StyledDetailCard = styled(Card)`
   width: 90%;
-  border-radius: 0 0 7px 7px;
-  box-shadow: 2px 2px 9px -1px darkgray;
-  margin: 20px 0;
+
   justify-self: center;
 `
 
@@ -36,22 +35,22 @@ export default function DetailCard({ plant, getOptionLabel, selection }) {
 
   return (
     <StyledDetailCard plant={plant}>
-      <StyledPlantImage src={img} alt={alt} />
-      <StyledTextbox>
-        <StyledCardHeader>
-          <StyledTitle>{title}</StyledTitle>
+      <CardPlantImage src={img} alt={alt} />
+      <CardTextbox>
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
           <Bookmark onClick={onBookmark} id={id} isBookmarked={isBookmarked} />
-        </StyledCardHeader>
-        <StyledLine />
+        </CardHeader>
+        <CardLine />
         <TagList
           tags={tagList}
           getOptionLabel={getOptionLabel}
           selection={selection}
         />
-        <StyledLine />
+        <CardLine />
         <StyledDescriptionHeader>Pflegehinweise</StyledDescriptionHeader>
         <StyledDescription> {description}</StyledDescription>
-      </StyledTextbox>
+      </CardTextbox>
     </StyledDetailCard>
   )
 }
