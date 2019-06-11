@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import PlantList from './PlantList'
-
 import FilterIcon from '../img/FilterIcon.png'
 import ListHeader from '../common/ListHeader'
 import GridList from '../common/GridList'
