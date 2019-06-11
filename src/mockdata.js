@@ -1,39 +1,24 @@
-import testPicture from './img/testPicture1.jpg'
+import pilea from './img/Pilea.jpg'
+import gasteria from './img/Gasteria.jpg'
+import haworthia from './img/Haworthia.jpg'
+import orchid from './img/Orchid.jpg'
+import magnolia from './img/Magnolia.jpg'
 import uid from 'uid'
 
 const plantObjects = [
   {
-    title: 'test1',
-    img: testPicture,
-    id: '11',
+    title: 'Magnolie',
+    img: magnolia,
+    id: 'uid()',
     isBookmarked: false,
     tagList: [
-      'room',
+      'not-room',
       'not-dark',
       'moist',
       'easy',
-      'not-big',
-      'wide',
-      'toxic',
-      'not-winter',
-      'allergenic',
-    ],
-    description:
-      'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
-  },
-  {
-    title: 'test2',
-    img: testPicture,
-    id: uid(),
-    isBookmarked: false,
-    tagList: [
-      'room',
-      'not-dark',
-      'moist',
-      'not-easy',
       'big',
       'wide',
-      'not-toxic',
+      'toxic',
       'winter',
       'not-allergenic',
     ],
@@ -41,46 +26,65 @@ const plantObjects = [
       'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
   },
   {
-    title: 'test3',
-    img: testPicture,
+    title: 'Pilea',
+    img: pilea,
     id: uid(),
     isBookmarked: false,
     tagList: [
-      'not-room',
+      'room',
+      'not-dark',
+      'moist',
+      'easy',
+      'big',
+      'not-wide',
+      'not-toxic',
+      'not-winter',
+      'not-allergenic',
+    ],
+    description:
+      'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
+  },
+  {
+    title: 'Gasteria',
+    img: gasteria,
+    id: uid(),
+    isBookmarked: false,
+    tagList: [
+      'room',
       'not-dark',
       'not-moist',
       'easy',
       'not-big',
       'not-wide',
       'not-toxic',
-      'winter',
+      'not-winter',
       'not-allergenic',
     ],
     description:
       'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
   },
   {
-    title: 'test4',
-    img: testPicture,
+    title: 'Haworthia',
+    img: haworthia,
     id: uid(),
     isBookmarked: false,
     tagList: [
       'room',
-      'dark',
+      'not-dark',
       'not-moist',
       'easy',
-      'big',
-      'wide',
+      'not-big',
+      'not-wide',
       'toxic',
       'not-winter',
-      'allergenic',
+      'not-allergenic',
     ],
     description:
       'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
   },
   {
-    title: 'test5',
-    img: testPicture,
+    title: 'Orchidee',
+    img: orchid,
     id: uid(),
     isBookmarked: false,
     tagList: [
@@ -88,8 +92,8 @@ const plantObjects = [
       'dark',
       'moist',
       'not-easy',
-      'big',
-      'wide',
+      'not-big',
+      'not-wide',
       'not-toxic',
       'not-winter',
       'allergenic',
