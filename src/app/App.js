@@ -8,6 +8,7 @@ import uid from 'uid'
 import FavPage from '../FavPage'
 import GlobalStyles from '../misc/GlobalStyles'
 import DetailPage from '../detailPage/DetailPage'
+import ScrollMemory from 'react-router-scroll-memory'
 
 let mockPlants = plantObjects
 
@@ -180,8 +181,13 @@ export default function App() {
     return optionArray[0].label
   }
 
+  function handleGoBack(history) {
+    history.goBack()
+  }
+
   return (
     <BrowserRouter>
+      <ScrollMemory elementId="plantlist" />
       <GlobalStyles />
       <Route
         exact
@@ -234,6 +240,7 @@ export default function App() {
             selection={selection}
             onBookmark={handleBookmark}
             plants={plants}
+            onClick={handleGoBack}
             {...props}
           />
         )}
