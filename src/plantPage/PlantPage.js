@@ -36,12 +36,14 @@ export default function PlantPage({
   return (
     <GridList>
       <ListHeader>Unsere Vorschläge</ListHeader>
-      <PlantList
-        plants={plants}
-        onBookmark={onBookmark}
-        getOptionLabel={getOptionLabel}
-        selection={selection}
-      />
+      <div id="plantlist">
+        <PlantList
+          plants={plants}
+          onBookmark={onBookmark}
+          getOptionLabel={getOptionLabel}
+          selection={selection}
+        />
+      </div>
       <StyledNavFilterButton to="/filter">
         <StyledFilterIcon src={FilterIcon} />
       </StyledNavFilterButton>
