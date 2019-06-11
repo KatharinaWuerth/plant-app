@@ -134,14 +134,18 @@ export default function App() {
 
   function getFilteredPlants() {
     const plantList = plants
-    const filteredPlants = plantList.filter(plant =>
-      hasSelectedOption(plant.tagList)
-    )
-    function hasSelectedOption(tagList) {
-      const matchedOption = getMatchedOptions(tagList)
-      return matchedOption.length > 0
+    if (selection.length === 0) {
+      return plantList
+    } else {
+      const filteredPlants = plantList.filter(plant =>
+        hasSelectedOption(plant.tagList)
+      )
+      function hasSelectedOption(tagList) {
+        const matchedOption = getMatchedOptions(tagList)
+        return matchedOption.length > 0
+      }
+      return filteredPlants
     }
-    return filteredPlants
   }
 
   function getMatchedOptions(tagList) {
