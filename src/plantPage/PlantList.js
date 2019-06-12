@@ -7,7 +7,6 @@ const StyledPlantList = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll;
 `
 
 export default function PlantList({

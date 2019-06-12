@@ -14,6 +14,11 @@ const StyledNavBackButton = styled(NavButton)`
   bottom: 4%;
   left: 9%;
 `
+
+const StyledDiv = styled.div`
+  overflow: scroll;
+`
+
 export default function FavPage({
   onBookmark,
   plants,
@@ -23,12 +28,14 @@ export default function FavPage({
   return (
     <GridList>
       <ListHeader>Deine Auswahl</ListHeader>
-      <PlantList
-        plants={plants}
-        onBookmark={onBookmark}
-        getOptionLabel={getOptionLabel}
-        selection={selection}
-      />
+      <StyledDiv id="plantlist">
+        <PlantList
+          plants={plants}
+          onBookmark={onBookmark}
+          getOptionLabel={getOptionLabel}
+          selection={selection}
+        />
+      </StyledDiv>
       <StyledNavBackButton to="matched">
         <StyledIcon src={BackIcon} />
       </StyledNavBackButton>
