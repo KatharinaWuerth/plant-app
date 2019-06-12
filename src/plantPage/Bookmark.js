@@ -5,8 +5,9 @@ import IconBookmark from '../img/BookmarkDarkGreen.png'
 import IconBookmarkActive from '../img/BookmarkActive.png'
 
 const StyledBookmarkImage = styled.img`
-  width: 10%;
-  height: 10%;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
 `
 
 export default function Bookmark({ onClick, isBookmarked, id }) {

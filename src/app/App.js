@@ -116,6 +116,13 @@ export default function App() {
     history.goBack()
   }
 
+  function handleUserInput(note, id) {
+    const newPlants = [...plants]
+    const index = newPlants.map(plant => plant.id).indexOf(id)
+    newPlants[index].userNote = note
+    setPlants(newPlants)
+  }
+
   return (
     <BrowserRouter>
       <ScrollMemory elementID="plantlist" />
@@ -146,6 +153,7 @@ export default function App() {
             {...props}
             getOptionLabel={getOptionLabel}
             selection={selection}
+            onUserInput={handleUserInput}
           />
         )}
       />

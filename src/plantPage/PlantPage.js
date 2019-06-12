@@ -32,6 +32,7 @@ export default function PlantPage({
   getOptionLabel,
   selection,
   matchInfo,
+  onUserInput,
 }) {
   return (
     <GridList>
@@ -43,6 +44,7 @@ export default function PlantPage({
           getOptionLabel={getOptionLabel}
           selection={selection}
           matchInfo={matchInfo}
+          onUserInput={onUserInput}
         />
       </StyledDiv>
       <StyledNavFilterButton to="/filter">

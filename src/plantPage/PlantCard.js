@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Bookmark from './Bookmark'
@@ -11,35 +11,48 @@ import {
   CardTitle,
   CardHeader,
   CardLine,
+  Container,
 } from '../common/CardComponents'
+import { EditAlt } from 'styled-icons/boxicons-regular/'
+import UserNotes from './UserNotes'
 
 const StyledCard = styled(Card)`
   width: 70%;
 `
 
-const Container = styled(NavLink)``
+const LinkContainer = styled(NavLink)``
 
 export function PlantCard({
-  img,
-  alt,
-  title,
-  id,
-  onBookmark,
-  isBookmarked,
-  tags,
-  getOptionLabel,
+  plant,
   selection,
   matchInfo,
+  onBookmark,
+  getOptionLabel,
+  onUserInput,
 }) {
+  const [editMode, setEditMode] = useState(false)
+  const { img, alt, title, id, isBookmarked } = plant
+  const tags = plant.tagList
+
+  function handleEdit() {
+    setEditMode(!editMode)
+  }
   return (
     <StyledCard>
-      <Container to={'/detail/' + id}>
+      <LinkContainer to={'/detail/' + id}>
         <CardPlantImage src={img} alt={alt} />
-      </Container>
+      </LinkContainer>
       <CardTextbox>
         <CardHeader>
           <CardTitle>{title}</CardTitle>
-          <Bookmark onClick={onBookmark} id={id} isBookmarked={isBookmarked} />
+          <Container>
+            <EditAlt size={20} onClick={handleEdit} />
+            <Bookmark
+              onClick={onBookmark}
+              id={id}
+              isBookmarked={isBookmarked}
+            />
+          </Container>
         </CardHeader>
         <CardLine />
         <TagList
@@ -48,6 +61,9 @@ export function PlantCard({
           selection={selection}
           matchInfo={matchInfo}
         />
+        {editMode === true ? (
+          <UserNotes onSave={onUserInput} plant={plant} />
+        ) : null}
       </CardTextbox>
     </StyledCard>
   )
