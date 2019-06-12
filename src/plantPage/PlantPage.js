@@ -1,16 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import PlantList from './PlantList'
-import FilterIcon from '../img/FilterIcon.png'
 import ListHeader from '../common/ListHeader'
 import GridList from '../common/GridList'
 import NavButton from '../common/NavButton'
 import BookmarkActive from '../img/BookmarkActive.png'
-
-const StyledFilterIcon = styled.img`
-  width: 50px;
-  padding: 12px;
-`
+import { FilterAlt } from 'styled-icons/boxicons-regular/'
 
 const StyledBookmarkActive = styled.img`
   width: 50px;
@@ -24,6 +19,8 @@ const StyledNavFavButton = styled(NavButton)`
 const StyledNavFilterButton = styled(NavButton)`
   bottom: 4%;
   left: 9%;
+  color: #367860;
+  padding: 10px;
 `
 const StyledDiv = styled.div`
   overflow: scroll;
@@ -49,7 +46,7 @@ export default function PlantPage({
         />
       </StyledDiv>
       <StyledNavFilterButton to="/filter">
-        <StyledFilterIcon src={FilterIcon} />
+        <FilterAlt title={'filter'} size={30} />
       </StyledNavFilterButton>
       <StyledNavFavButton to="/favourite">
         <StyledBookmarkActive src={BookmarkActive} />
