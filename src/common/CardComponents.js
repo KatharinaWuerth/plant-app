@@ -9,10 +9,22 @@ export const Card = styled.section`
 
 export const CardPlantImage = styled.img`
   width: 100%;
+  height: 220px;
+  object-fit: cover;
+  @media screen and (min-width: 600px) {
+    height: 300px;
+  }
+  @media screen and (min-width: 980px) {
+    height: 400px;
+  }
 `
 export const CardTitle = styled.h3`
   margin-block-end: 0;
   margin-block-start: 0;
+  align-self: center;
+  @media screen and (min-width: 600px) {
+    font-size: 2rem;
+  }
 `
 export const CardHeader = styled.header`
   display: inline-flex;
