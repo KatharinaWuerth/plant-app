@@ -191,7 +191,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <ScrollMemory elementId="plantlist" />
+      <ScrollMemory elementID="plantlist" />
       <GlobalStyles />
       <Route
         exact

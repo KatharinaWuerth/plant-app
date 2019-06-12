@@ -25,6 +25,9 @@ const StyledNavFilterButton = styled(NavButton)`
   bottom: 4%;
   left: 9%;
 `
+const StyledDiv = styled.div`
+  overflow: scroll;
+`
 
 export default function PlantPage({
   onBookmark,
@@ -35,14 +38,14 @@ export default function PlantPage({
   return (
     <GridList>
       <ListHeader>Unsere Vorschläge</ListHeader>
-      <div id="plantlist">
+      <StyledDiv id="plantlist">
         <PlantList
           plants={plants}
           onBookmark={onBookmark}
           getOptionLabel={getOptionLabel}
           selection={selection}
         />
-      </div>
+      </StyledDiv>
       <StyledNavFilterButton to="/filter">
         <StyledFilterIcon src={FilterIcon} />
       </StyledNavFilterButton>
