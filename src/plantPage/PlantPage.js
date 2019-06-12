@@ -34,6 +34,7 @@ export default function PlantPage({
   plants,
   getOptionLabel,
   selection,
+  matchInfo,
 }) {
   return (
     <GridList>
@@ -44,6 +45,7 @@ export default function PlantPage({
           onBookmark={onBookmark}
           getOptionLabel={getOptionLabel}
           selection={selection}
+          matchInfo={matchInfo}
         />
       </StyledDiv>
       <StyledNavFilterButton to="/filter">

@@ -29,6 +29,7 @@ export function PlantCard({
   tags,
   getOptionLabel,
   selection,
+  matchInfo,
 }) {
   return (
     <StyledCard>
@@ -45,6 +46,7 @@ export function PlantCard({
           tags={tags}
           getOptionLabel={getOptionLabel}
           selection={selection}
+          matchInfo={matchInfo}
         />
       </CardTextbox>
     </StyledCard>

@@ -9,6 +9,8 @@ import FavPage from '../FavPage'
 import GlobalStyles from '../misc/GlobalStyles'
 import DetailPage from '../detailPage/DetailPage'
 import ScrollMemory from 'react-router-scroll-memory'
+import { getMatchedOptions } from '../utils'
+import { getMatchedNum } from '../utils'
 
 let mockPlants = plantObjects
 
@@ -141,26 +143,18 @@ export default function App() {
         hasSelectedOption(plant.tagList)
       )
       function hasSelectedOption(tagList) {
-        const matchedOption = getMatchedOptions(tagList)
+        const matchedOption = getMatchedOptions(tagList, selection)
         return matchedOption.length > 0
       }
       return filteredPlants
     }
   }
 
-  function getMatchedOptions(tagList) {
-    return selection.filter(option => tagList.indexOf(option) !== -1)
-  }
-
-  function getMatchedNum(plant) {
-    return getMatchedOptions(plant.tagList).length
-  }
-
   function getSortedFilteredPlants() {
     const filteredPlants = getFilteredPlants()
     const newPlantsWithMatchNum = filteredPlants.map(plant => ({
       ...plant,
-      matchNum: getMatchedNum(plant),
+      matchNum: getMatchedNum(plant, selection),
     }))
     const sortedFilteredPlants = newPlantsWithMatchNum.sort(
       (a, b) => b.matchNum - a.matchNum
