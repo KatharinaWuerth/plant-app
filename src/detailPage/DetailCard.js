@@ -10,6 +10,7 @@ import {
 } from '../common/CardComponents'
 import Bookmark from '../plantPage/Bookmark'
 import TagList from '../plantPage/PlantTagList'
+import { getMatchedNum } from '../utils'
 
 const StyledDetailCard = styled(Card)`
   width: 90%;
@@ -46,6 +47,7 @@ export default function DetailCard({ plant, getOptionLabel, selection }) {
           tags={tagList}
           getOptionLabel={getOptionLabel}
           selection={selection}
+          matchInfo={getMatchedNum(plant, selection) + '/' + selection.length}
         />
         <CardLine />
         <StyledDescriptionHeader>Pflegehinweise</StyledDescriptionHeader>

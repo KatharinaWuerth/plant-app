@@ -18,9 +18,22 @@ const StyledTag = styled.span`
   }
 `
 
-export default function TagList({ tags, getOptionLabel, selection }) {
+const StyledMatchInfo = styled.h4`
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #367860;
+  width: 100%;
+`
+
+export default function TagList({
+  tags,
+  getOptionLabel,
+  selection,
+  matchInfo,
+}) {
   return (
     <StyledTagList>
+      <StyledMatchInfo>Übereinstimmung: {matchInfo} </StyledMatchInfo>
       {tags.map(tag => (
         <StyledTag key={tag} active={selection.includes(tag)}>
           {getOptionLabel(tag)}

@@ -2,6 +2,7 @@ import React from 'react'
 import { PlantCard } from './PlantCard'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { getMatchedNum } from '../utils'
 
 const StyledPlantList = styled.section`
   display: flex;
@@ -25,6 +26,7 @@ export default function PlantList({
           tags={plant.tagList}
           onBookmark={onBookmark}
           selection={selection}
+          matchInfo={getMatchedNum(plant, selection) + '/' + selection.length}
         />
       ))}
     </StyledPlantList>
