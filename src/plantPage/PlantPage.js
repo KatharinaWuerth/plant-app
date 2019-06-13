@@ -14,11 +14,11 @@ const StyledBookmarkActive = styled.img`
 
 const StyledNavFavButton = styled(NavButton)`
   bottom: 4%;
-  right: 9%;
+  right: 5%;
 `
 const StyledNavFilterButton = styled(NavButton)`
   bottom: 4%;
-  left: 9%;
+  left: 5%;
   color: #367860;
   padding: 10px;
 `

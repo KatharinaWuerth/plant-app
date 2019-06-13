@@ -21,7 +21,7 @@ const Container = styled.div`
 const StyledNavCloseButton = styled.button`
   padding: 0;
   top: 4%;
-  right: 9%;
+  right: 5%;
   display: grid;
   height: 50px;
   width: 50px;

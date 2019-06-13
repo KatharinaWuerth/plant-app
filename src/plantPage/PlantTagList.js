@@ -7,7 +7,7 @@ const StyledTagList = styled.section`
 `
 
 const StyledTag = styled.span`
-  border: solid #367860 0.7px;
+  border: solid #79838f 0.7px;
   border-radius: 7px;
   padding: 3px;
   margin: 3px;
@@ -21,7 +21,7 @@ const StyledTag = styled.span`
 const StyledMatchInfo = styled.h4`
   margin-top: 0;
   margin-bottom: 5px;
-  color: #367860;
+  color: #79838f;
   width: 100%;
 `
 

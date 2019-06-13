@@ -14,7 +14,6 @@ import { getMatchedNum } from '../utils'
 
 const StyledDetailCard = styled(Card)`
   width: 90%;
-
   justify-self: center;
 `
 

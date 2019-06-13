@@ -9,9 +9,17 @@ import { ArrowBack } from 'styled-icons/boxicons-regular/'
 
 const StyledNavBackButton = styled(NavButton)`
   bottom: 4%;
-  left: 9%;
+  left: 5%;
   color: #367860;
   padding: 10px;
+`
+
+const StyledListHeader = styled(ListHeader)`
+  background-color: #f0bb77;
+`
+
+const StyledGridList = styled(GridList)`
+  background: linear-gradient(0deg, white 70%, #f0bb77 30%);
 `
 
 const StyledDiv = styled.div`
@@ -25,8 +33,8 @@ export default function FavPage({
   selection,
 }) {
   return (
-    <GridList>
-      <ListHeader>Deine Auswahl</ListHeader>
+    <StyledGridList>
+      <StyledListHeader>Deine Auswahl</StyledListHeader>
       <StyledDiv id="plantlist">
         <PlantList
           plants={plants}
@@ -38,6 +46,6 @@ export default function FavPage({
       <StyledNavBackButton to="matched">
         <ArrowBack title={'back'} size={30} />
       </StyledNavBackButton>
-    </GridList>
+    </StyledGridList>
   )
 }

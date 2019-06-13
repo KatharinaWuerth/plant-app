@@ -14,10 +14,10 @@ import {
   Container,
 } from '../common/CardComponents'
 import { EditAlt } from 'styled-icons/boxicons-regular/'
-import UserNotes from './UserNotes'
+import Notes from './Notes'
 
 const StyledCard = styled(Card)`
-  width: 70%;
+  width: 80%;
 `
 
 const LinkContainer = styled(NavLink)``
@@ -31,12 +31,14 @@ export function PlantCard({
   onUserInput,
 }) {
   const [editMode, setEditMode] = useState(false)
+
   const { img, alt, title, id, isBookmarked } = plant
   const tags = plant.tagList
 
-  function handleEdit() {
+  function handleEditMode() {
     setEditMode(!editMode)
   }
+
   return (
     <StyledCard>
       <LinkContainer to={'/detail/' + id}>
@@ -46,7 +48,7 @@ export function PlantCard({
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <Container>
-            <EditAlt size={20} onClick={handleEdit} />
+            <EditAlt size={20} onClick={handleEditMode} />
             <Bookmark
               onClick={onBookmark}
               id={id}
@@ -61,9 +63,14 @@ export function PlantCard({
           selection={selection}
           matchInfo={matchInfo}
         />
-        {editMode === true ? (
-          <UserNotes onSave={onUserInput} plant={plant} />
-        ) : null}
+
+        <Notes
+          value={plant.userNote}
+          onUserInput={onUserInput}
+          editMode={editMode}
+          plant={plant}
+          changeEditMode={handleEditMode}
+        />
       </CardTextbox>
     </StyledCard>
   )
