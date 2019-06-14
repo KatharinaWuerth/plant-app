@@ -35,10 +35,6 @@ export function PlantCard({
   const { img, alt, title, id, isBookmarked } = plant
   const tags = plant.tagList
 
-  function handleEditMode() {
-    setEditMode(!editMode)
-  }
-
   return (
     <StyledCard>
       <LinkContainer to={'/detail/' + id}>
@@ -48,7 +44,7 @@ export function PlantCard({
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <Container>
-            <EditAlt size={20} onClick={handleEditMode} />
+            <EditAlt size={20} onClick={() => setEditMode(!editMode)} />
             <Bookmark
               onClick={onBookmark}
               id={id}
@@ -69,7 +65,7 @@ export function PlantCard({
           onUserInput={onUserInput}
           editMode={editMode}
           plant={plant}
-          changeEditMode={handleEditMode}
+          changeEditMode={() => setEditMode(!editMode)}
         />
       </CardTextbox>
     </StyledCard>
