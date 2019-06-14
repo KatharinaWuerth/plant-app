@@ -15,18 +15,20 @@ export default function PlantList({
   onBookmark,
   getOptionLabel,
   selection,
+  onUserInput,
 }) {
   return (
     <StyledPlantList>
       {plants.map(plant => (
         <PlantCard
           key={plant.id}
-          {...plant}
+          plant={plant}
           getOptionLabel={getOptionLabel}
           tags={plant.tagList}
           onBookmark={onBookmark}
           selection={selection}
           matchInfo={getMatchedNum(plant, selection) + '/' + selection.length}
+          onUserInput={onUserInput}
         />
       ))}
     </StyledPlantList>

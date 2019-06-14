@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import DetailCard from './DetailCard'
-import CloseIcon from '../img/CloseIcon.png'
+import { Close } from 'styled-icons/material/'
 
 const StyledDetailGrid = styled.div`
   display: grid;
@@ -18,15 +18,10 @@ const Container = styled.div`
   overflow-y: scroll;
 `
 
-const StyledCloseIcon = styled.img`
-  width: 50px;
-  padding: 13px;
-`
-
 const StyledNavCloseButton = styled.button`
   padding: 0;
   top: 4%;
-  right: 9%;
+  right: 5%;
   display: grid;
   height: 50px;
   width: 50px;
@@ -34,6 +29,8 @@ const StyledNavCloseButton = styled.button`
   border-radius: 50%;
   background-color: white;
   box-shadow: 2px 2px 9px -1px darkgray;
+  color: #367860;
+  padding: 10px;
 `
 
 function getPlantById(id, plants) {
@@ -62,7 +59,7 @@ export default function DetailPage(allParametersObj) {
         />
       </Container>
       <StyledNavCloseButton onClick={() => onClick(history)}>
-        <StyledCloseIcon src={CloseIcon} />
+        <Close name={'close'} size={30} />
       </StyledNavCloseButton>
     </StyledDetailGrid>
   )

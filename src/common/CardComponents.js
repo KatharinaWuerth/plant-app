@@ -27,7 +27,7 @@ export const CardTitle = styled.h3`
   }
 `
 export const CardHeader = styled.header`
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
   width: 100%;
 `
@@ -40,4 +40,10 @@ export const CardLine = styled.div`
   height: 3px;
   border-radius: 1.5px;
   margin: 10px 0;
+`
+
+export const Container = styled.div`
+  display: flex;
+  align-content: center;
+  color: #367860;
 `
