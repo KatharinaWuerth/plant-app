@@ -119,7 +119,7 @@ export default function App() {
   function handleUserInput(note, id) {
     const newPlants = [...plants]
     const index = newPlants.map(plant => plant.id).indexOf(id)
-    newPlants[index].userNote = note
+    newPlants[index].userNote = note.trim()
     setPlants(newPlants)
   }
 

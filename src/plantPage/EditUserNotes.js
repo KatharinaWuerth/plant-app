@@ -9,6 +9,7 @@ const StyledEditNote = styled.textarea`
   width: 85%;
   border: solid #367860 0.7px;
   line-height: 2;
+  outline: none !important;
 `
 
 export default function EditUserNotes({ onSave, plant, changeEditMode }) {
@@ -34,6 +35,7 @@ export default function EditUserNotes({ onSave, plant, changeEditMode }) {
           placeholder={'Deine Notizen'}
           onChange={handleChange}
           value={note}
+          autoFocus
         />
         <Save size={25} onClick={event => handleInput(event)} />
       </FormContainer>
