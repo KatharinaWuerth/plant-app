@@ -6,6 +6,8 @@ import GridList from '../common/GridList'
 import NavButton from '../common/NavButton'
 import BookmarkActive from '../img/BookmarkActive.png'
 import { FilterAlt } from 'styled-icons/boxicons-regular/'
+import Fuse from 'fuse.js'
+import plantObjects from '../mockdata'
 
 const StyledBookmarkActive = styled.img`
   width: 50px;
@@ -41,14 +43,17 @@ const Search = styled.input`
   outline: none !important;
 `
 
-export default function PlantPage({
-  onBookmark,
-  plants,
-  getOptionLabel,
-  selection,
-  matchInfo,
-  onUserInput,
-}) {
+export default function PlantPage(allParameterObjects) {
+  const {
+    onBookmark,
+    plants,
+    getOptionLabel,
+    selection,
+    matchInfo,
+    onUserInput,
+    history,
+  } = allParameterObjects
+
   let prevScrollpos = 0
 
   function scrollFunction(event) {
@@ -62,10 +67,34 @@ export default function PlantPage({
     prevScrollpos = currentScrollPos
   }
 
+  function onKeyPressSearch(event) {
+    const searchParam = event.target.value
+    var options = {
+      shouldSort: true,
+      findAllMatches: true,
+      threshold: 0.4,
+      maxPatternLength: 25,
+      minMatchCharLength: 3,
+      keys: ['title'],
+    }
+    var fuse = new Fuse(plantObjects, options)
+    var result = fuse.search(searchParam)
+    handleSearch(result[0].id)
+  }
+
+  function handleSearch(id) {
+    history.push(`/detail/${id}`)
+  }
+
   return (
     <GridList>
       <StyledListHeader>Unsere Vorschläge</StyledListHeader>
-      <Search className="searchbar" placeholder="Suche" />
+      <Search
+        className="searchbar"
+        type="text"
+        placeholder="Suche eine bestimmte Pflanze"
+        onKeyPress={event => event.charCode === 13 && onKeyPressSearch(event)}
+      />
       <StyledDiv id="plantlist" onScroll={event => scrollFunction(event)}>
         <PlantList
           plants={plants}

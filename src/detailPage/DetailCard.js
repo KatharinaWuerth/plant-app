@@ -32,7 +32,6 @@ export default function DetailCard({ plant, getOptionLabel, selection }) {
     tagList,
     description,
   } = plant
-
   return (
     <StyledDetailCard plant={plant}>
       <CardPlantImage src={img} alt={alt} />
