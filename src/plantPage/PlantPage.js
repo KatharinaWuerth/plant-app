@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PlantList from './PlantList'
 import ListHeader from '../common/ListHeader'
@@ -10,6 +10,10 @@ import { FilterAlt } from 'styled-icons/boxicons-regular/'
 const StyledBookmarkActive = styled.img`
   width: 50px;
   padding: 10px;
+`
+
+const StyledListHeader = styled(ListHeader)`
+  z-index: 1;
 `
 
 const StyledNavFavButton = styled(NavButton)`
@@ -26,9 +30,15 @@ const StyledDiv = styled.div`
   overflow: scroll;
 `
 const Search = styled.input`
+  position: fixed;
+  top: 80px;
+  height: 1.7rem;
   width: 100%;
-  background: red;
+  border-radius: 7px;
+  border: solid #79838f 0.7px;
+  padding: 5px;
   transition: top 0.6s;
+  outline: none !important;
 `
 
 export default function PlantPage({
@@ -39,17 +49,24 @@ export default function PlantPage({
   matchInfo,
   onUserInput,
 }) {
-  const scrollRef = useRef(null)
+  let prevScrollpos = 0
 
-  useEffect(() => {
-    scrollRef.current.scrollTop = 300
-  }, [])
+  function scrollFunction(event) {
+    let currentScrollPos = event.target.scrollTop
+
+    if (prevScrollpos < currentScrollPos) {
+      document.querySelector('.searchbar').style.top = '-50px'
+    } else {
+      document.querySelector('.searchbar').style.top = '76px'
+    }
+    prevScrollpos = currentScrollPos
+  }
 
   return (
     <GridList>
-      <ListHeader>Unsere Vorschläge</ListHeader>
-      <StyledDiv id="plantlist" ref={scrollRef}>
-        <Search />
+      <StyledListHeader>Unsere Vorschläge</StyledListHeader>
+      <Search className="searchbar" placeholder="Suche" />
+      <StyledDiv id="plantlist" onScroll={event => scrollFunction(event)}>
         <PlantList
           plants={plants}
           onBookmark={onBookmark}
