@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import PlantList from './PlantList'
 import ListHeader from '../common/ListHeader'
@@ -25,6 +25,11 @@ const StyledNavFilterButton = styled(NavButton)`
 const StyledDiv = styled.div`
   overflow: scroll;
 `
+const Search = styled.input`
+  width: 100%;
+  background: red;
+  transition: top 0.6s;
+`
 
 export default function PlantPage({
   onBookmark,
@@ -34,10 +39,17 @@ export default function PlantPage({
   matchInfo,
   onUserInput,
 }) {
+  const scrollRef = useRef(null)
+
+  useEffect(() => {
+    scrollRef.current.scrollTop = 300
+  }, [])
+
   return (
     <GridList>
       <ListHeader>Unsere Vorschläge</ListHeader>
-      <StyledDiv id="plantlist">
+      <StyledDiv id="plantlist" ref={scrollRef}>
+        <Search />
         <PlantList
           plants={plants}
           onBookmark={onBookmark}
