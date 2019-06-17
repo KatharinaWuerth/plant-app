@@ -31,7 +31,6 @@ export default function PlantPage({
   plants,
   getOptionLabel,
   selection,
-  matchInfo,
   onUserInput,
 }) {
   return (
@@ -43,7 +42,6 @@ export default function PlantPage({
           onBookmark={onBookmark}
           getOptionLabel={getOptionLabel}
           selection={selection}
-          matchInfo={matchInfo}
           onUserInput={onUserInput}
         />
       </StyledDiv>

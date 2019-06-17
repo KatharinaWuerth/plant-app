@@ -31,6 +31,8 @@ export default function FavPage({
   plants,
   getOptionLabel,
   selection,
+  matchInfo,
+  onUserInput,
 }) {
   return (
     <StyledGridList>
@@ -41,6 +43,7 @@ export default function FavPage({
           onBookmark={onBookmark}
           getOptionLabel={getOptionLabel}
           selection={selection}
+          onUserInput={onUserInput}
         />
       </StyledDiv>
       <StyledNavBackButton to="matched">

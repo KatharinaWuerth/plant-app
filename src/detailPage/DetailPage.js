@@ -46,6 +46,7 @@ export default function DetailPage(allParametersObj) {
     selection,
     onClick,
     history,
+    onUserInput,
   } = allParametersObj
 
   return (
@@ -56,6 +57,7 @@ export default function DetailPage(allParametersObj) {
           plant={getPlantById(id, plants)}
           getOptionLabel={getOptionLabel}
           selection={selection}
+          onUserInput={onUserInput}
         />
       </Container>
       <StyledNavCloseButton onClick={() => onClick(history)}>
