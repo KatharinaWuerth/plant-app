@@ -6,6 +6,7 @@ import GridList from '../common/GridList'
 import NavButton from '../common/NavButton'
 import BookmarkActive from '../img/BookmarkActive.png'
 import { FilterAlt } from 'styled-icons/boxicons-regular/'
+import PropTypes from 'prop-types'
 
 const StyledBookmarkActive = styled.img`
   width: 50px;
@@ -31,7 +32,6 @@ export default function PlantPage({
   plants,
   getOptionLabel,
   selection,
-  matchInfo,
   onUserInput,
 }) {
   return (
@@ -43,7 +43,6 @@ export default function PlantPage({
           onBookmark={onBookmark}
           getOptionLabel={getOptionLabel}
           selection={selection}
-          matchInfo={matchInfo}
           onUserInput={onUserInput}
         />
       </StyledDiv>
@@ -55,4 +54,12 @@ export default function PlantPage({
       </StyledNavFavButton>
     </GridList>
   )
+}
+
+PlantPage.propTypes = {
+  plants: PropTypes.arrayOf(PropTypes.object),
+  onBookmark: PropTypes.func,
+  getOptionLabel: PropTypes.func,
+  selection: PropTypes.array,
+  onUserInput: PropTypes.func,
 }

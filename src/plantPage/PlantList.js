@@ -36,5 +36,9 @@ export default function PlantList({
 }
 
 PlantList.propTypes = {
-  cards: PropTypes.array,
+  plants: PropTypes.arrayOf(PropTypes.object),
+  onBookmark: PropTypes.func,
+  getOptionLabel: PropTypes.func,
+  selection: PropTypes.array,
+  onUserInput: PropTypes.func,
 }

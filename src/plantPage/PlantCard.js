@@ -73,6 +73,19 @@ export function PlantCard({
 }
 
 PlantCard.propTypes = {
-  title: PropTypes.string,
-  img: PropTypes.string,
+  plant: PropTypes.shape({
+    img: PropTypes.string,
+    alt: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    isBookmarked: PropTypes.bool,
+    tagList: PropTypes.arrayOf(PropTypes.string),
+    userNote: PropTypes.string,
+  }),
+  selection: PropTypes.arrayOf(PropTypes.string),
+  matchInfo: PropTypes.string,
+  onBookmark: PropTypes.func,
+  getOptionLabel: PropTypes.func,
+  onUserInput: PropTypes.func,
+  editMode: PropTypes.bool,
 }

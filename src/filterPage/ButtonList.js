@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import OptionButton from './OptionButton'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const StyledOptionRow = styled.div`
   display: grid;
@@ -62,4 +63,21 @@ export default function ButtonList({ optionList, selection, onOptionSelect }) {
       </StyledFilterButton>
     </OptionsGrid>
   )
+}
+
+OptionRow.propTypes = {
+  optionGroup: PropTypes.arrayOf(PropTypes.object),
+  selection: PropTypes.arrayOf(PropTypes.string),
+  onOptionSelect: PropTypes.func,
+  option: PropTypes.shape({ id: PropTypes.string.isRequired }),
+}
+
+ButtonList.propTypes = {
+  optionList: PropTypes.arrayOf(PropTypes.object),
+  selection: PropTypes.arrayOf(PropTypes.string),
+  onOptionSelect: PropTypes.func,
+  optionGroup: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(PropTypes.string),
+  }),
 }

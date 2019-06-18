@@ -11,6 +11,7 @@ import {
 import Bookmark from '../plantPage/Bookmark'
 import TagList from '../plantPage/PlantTagList'
 import { getMatchedNum } from '../utils'
+import PropTypes from 'prop-types'
 
 const StyledDetailCard = styled(Card)`
   width: 90%;
@@ -54,4 +55,19 @@ export default function DetailCard({ plant, getOptionLabel, selection }) {
       </CardTextbox>
     </StyledDetailCard>
   )
+}
+
+DetailCard.protoTypes = {
+  plant: PropTypes.shape({
+    img: PropTypes.string,
+    alt: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    onBookmark: PropTypes.func,
+    isBookmarked: PropTypes.bool,
+    tagList: PropTypes.arrayOf(PropTypes.string).isRequired,
+    description: PropTypes.string,
+  }),
+  getOptionLabel: PropTypes.func,
+  selection: PropTypes.arrayOf(PropTypes.string),
 }

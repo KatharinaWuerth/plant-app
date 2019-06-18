@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { CardLine } from '../common/CardComponents'
 import Formcontainer from '../common/FormContainer'
 import FormLabel from '../common/FormLabel'
+import PropTypes from 'prop-types'
 
 const StyledNote = styled.p`
   width: 100%;
@@ -21,4 +22,8 @@ export default function ShowUserNotes({ value }) {
       </Formcontainer>
     </span>
   )
+}
+
+ShowUserNotes.propTypes = {
+  value: PropTypes.string,
 }

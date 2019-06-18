@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const StyledTagList = styled.section`
   display: flex;
@@ -41,4 +42,11 @@ export default function TagList({
       ))}
     </StyledTagList>
   )
+}
+
+TagList.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string),
+  getOptionLabel: PropTypes.func,
+  selection: PropTypes.arrayOf(PropTypes.string),
+  matchInfo: PropTypes.string,
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import EditUserNotes from './EditUserNotes'
 import ShowUserNotes from './ShowUserNotes'
+import PropTypes from 'prop-types'
 
 export default function Notes({
   onUserInput,
@@ -32,4 +33,11 @@ export default function Notes({
       return null
     }
   }
+}
+
+Notes.propTypes = {
+  onUserInput: PropTypes.func,
+  plant: PropTypes.object,
+  editMode: PropTypes.bool,
+  changeEditMode: PropTypes.func,
 }

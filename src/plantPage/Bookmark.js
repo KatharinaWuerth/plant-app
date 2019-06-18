@@ -26,7 +26,7 @@ export default function Bookmark({ onClick, isBookmarked, id }) {
 }
 
 Bookmark.propTypes = {
-  alt: PropTypes.string,
-  img: PropTypes.string,
-  isBookmarked: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  isBookmarked: PropTypes.bool,
 }
