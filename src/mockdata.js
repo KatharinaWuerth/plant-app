@@ -3,13 +3,12 @@ import gasteria from './img/Gasteria.jpg'
 import haworthia from './img/Haworthia.jpg'
 import orchid from './img/Orchid.jpg'
 import magnolia from './img/Magnolia.jpg'
-import uid from 'uid'
 
 const plantObjects = [
   {
     title: 'Magnolie',
     img: magnolia,
-    id: 'uid()',
+    id: '1',
     isBookmarked: false,
     tagList: [
       'not-room',
@@ -28,7 +27,7 @@ const plantObjects = [
   {
     title: 'Pilea',
     img: pilea,
-    id: uid(),
+    id: '2',
     isBookmarked: false,
     tagList: [
       'room',
@@ -47,7 +46,7 @@ const plantObjects = [
   {
     title: 'Gasteria',
     img: gasteria,
-    id: uid(),
+    id: '3',
     isBookmarked: false,
     tagList: [
       'room',
@@ -66,7 +65,7 @@ const plantObjects = [
   {
     title: 'Haworthia',
     img: haworthia,
-    id: uid(),
+    id: '4',
     isBookmarked: false,
     tagList: [
       'room',
@@ -85,7 +84,7 @@ const plantObjects = [
   {
     title: 'Orchidee',
     img: orchid,
-    id: uid(),
+    id: '5',
     isBookmarked: false,
     tagList: [
       'not-room',

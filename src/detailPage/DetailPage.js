@@ -19,18 +19,17 @@ const Container = styled.div`
 `
 
 const StyledNavCloseButton = styled.button`
-  padding: 0;
   top: 4%;
   right: 5%;
-  display: grid;
+  color: #367860;
+  padding: 10px;
+  display: block;
   height: 50px;
   width: 50px;
-  position: absolute;
+  position: fixed;
   border-radius: 50%;
   background-color: white;
   box-shadow: 2px 2px 9px -1px darkgray;
-  color: #367860;
-  padding: 10px;
 `
 
 function getPlantById(id, plants) {

@@ -3,7 +3,7 @@ import plantObjects from '../mockdata'
 import { setLocal, getLocal } from '../services'
 import PlantPage from '../plantPage/PlantPage'
 import FilterPage from '../filterPage/FilterPage'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 import optionList from '../OptionList'
 import FavPage from '../FavPage'
 import GlobalStyles from '../misc/GlobalStyles'
@@ -186,6 +186,7 @@ export default function App() {
           />
         )}
       />
+      <Route exact path="/" render={() => <Redirect to="/filter" />} />
     </BrowserRouter>
   )
 }

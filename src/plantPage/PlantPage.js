@@ -6,10 +6,16 @@ import GridList from '../common/GridList'
 import NavButton from '../common/NavButton'
 import BookmarkActive from '../img/BookmarkActive.png'
 import { FilterAlt } from 'styled-icons/boxicons-regular/'
+import Fuse from 'fuse.js'
+import plantObjects from '../mockdata'
 
 const StyledBookmarkActive = styled.img`
   width: 50px;
   padding: 10px;
+`
+
+const StyledListHeader = styled(ListHeader)`
+  z-index: 1;
 `
 
 const StyledNavFavButton = styled(NavButton)`
@@ -25,18 +31,70 @@ const StyledNavFilterButton = styled(NavButton)`
 const StyledDiv = styled.div`
   overflow: scroll;
 `
+const Search = styled.input`
+  position: fixed;
+  top: 80px;
+  height: 1.7rem;
+  width: 100%;
+  border-radius: 7px;
+  border: solid #79838f 0.7px;
+  padding: 5px;
+  transition: top 0.6s;
+  outline: none !important;
+`
 
-export default function PlantPage({
-  onBookmark,
-  plants,
-  getOptionLabel,
-  selection,
-  onUserInput,
-}) {
+export default function PlantPage(allParameterObjects) {
+  const {
+    onBookmark,
+    plants,
+    getOptionLabel,
+    selection,
+    onUserInput,
+    history,
+  } = allParameterObjects
+
+  let prevScrollpos = 0
+
+  function scrollFunction(event) {
+    let currentScrollPos = event.target.scrollTop
+
+    if (prevScrollpos < currentScrollPos) {
+      document.querySelector('.searchbar').style.top = '-50px'
+    } else {
+      document.querySelector('.searchbar').style.top = '76px'
+    }
+    prevScrollpos = currentScrollPos
+  }
+
+  function onKeyPressSearch(event) {
+    const searchParam = event.target.value
+    var options = {
+      shouldSort: true,
+      findAllMatches: true,
+      threshold: 0.4,
+      maxPatternLength: 25,
+      minMatchCharLength: 3,
+      keys: ['title'],
+    }
+    var fuse = new Fuse(plantObjects, options)
+    var result = fuse.search(searchParam)
+    handleSearch(result[0].id)
+  }
+
+  function handleSearch(id) {
+    history.push(`/detail/${id}`)
+  }
+
   return (
     <GridList>
-      <ListHeader>Unsere Vorschläge</ListHeader>
-      <StyledDiv id="plantlist">
+      <StyledListHeader>Unsere Vorschläge</StyledListHeader>
+      <Search
+        className="searchbar"
+        type="text"
+        placeholder="Suche eine bestimmte Pflanze"
+        onKeyPress={event => event.charCode === 13 && onKeyPressSearch(event)}
+      />
+      <StyledDiv id="plantlist" onScroll={event => scrollFunction(event)}>
         <PlantList
           plants={plants}
           onBookmark={onBookmark}
