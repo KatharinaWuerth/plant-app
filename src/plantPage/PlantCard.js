@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Bookmark from './Bookmark'
-import TagList from './PlantTagList'
-import { NavLink } from 'react-router-dom'
+import TagList from './TagList'
+import { Link } from 'react-router-dom'
 import {
   Card,
   CardPlantImage,
@@ -20,7 +20,7 @@ const StyledCard = styled(Card)`
   width: 80%;
 `
 
-const LinkContainer = styled(NavLink)``
+const LinkContainer = styled(Link)``
 
 export function PlantCard({
   plant,
@@ -73,6 +73,19 @@ export function PlantCard({
 }
 
 PlantCard.propTypes = {
-  title: PropTypes.string,
-  img: PropTypes.string,
+  plant: PropTypes.shape({
+    img: PropTypes.string,
+    alt: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    isBookmarked: PropTypes.bool,
+    tagList: PropTypes.arrayOf(PropTypes.string),
+    userNote: PropTypes.string,
+  }),
+  selection: PropTypes.arrayOf(PropTypes.string),
+  matchInfo: PropTypes.string,
+  onBookmark: PropTypes.func,
+  getOptionLabel: PropTypes.func,
+  onUserInput: PropTypes.func,
+  editMode: PropTypes.bool,
 }

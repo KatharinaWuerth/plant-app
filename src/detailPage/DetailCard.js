@@ -10,10 +10,11 @@ import {
   Container,
 } from '../common/CardComponents'
 import Bookmark from '../plantPage/Bookmark'
-import TagList from '../plantPage/PlantTagList'
+import TagList from '../plantPage/TagList'
 import { getMatchedNum } from '../utils'
 import Notes from '../plantPage/Notes'
 import { EditAlt } from 'styled-icons/boxicons-regular/'
+import PropTypes from 'prop-types'
 
 const StyledDetailCard = styled(Card)`
   width: 90%;
@@ -29,18 +30,11 @@ export default function DetailCard({
   selection,
   getOptionLabel,
   onUserInput,
+  onBookmark,
 }) {
-  const {
-    img,
-    alt,
-    title,
-    id,
-    onBookmark,
-    isBookmarked,
-    tagList,
-    description,
-  } = plant
+  const { img, alt, title, id, isBookmarked, tagList, description } = plant
   const [editMode, setEditMode] = useState(false)
+
   return (
     <StyledDetailCard plant={plant}>
       <CardPlantImage src={img} alt={alt} />
@@ -76,4 +70,19 @@ export default function DetailCard({
       </CardTextbox>
     </StyledDetailCard>
   )
+}
+
+DetailCard.protoTypes = {
+  plant: PropTypes.shape({
+    img: PropTypes.string,
+    alt: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    onBookmark: PropTypes.func,
+    isBookmarked: PropTypes.bool,
+    tagList: PropTypes.arrayOf(PropTypes.string).isRequired,
+    description: PropTypes.string,
+  }),
+  getOptionLabel: PropTypes.func,
+  selection: PropTypes.arrayOf(PropTypes.string),
 }

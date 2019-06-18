@@ -8,6 +8,7 @@ import BookmarkActive from '../img/BookmarkActive.png'
 import { FilterAlt } from 'styled-icons/boxicons-regular/'
 import Fuse from 'fuse.js'
 import plantObjects from '../mockdata'
+import PropTypes from 'prop-types'
 
 const StyledBookmarkActive = styled.img`
   width: 50px;
@@ -111,4 +112,12 @@ export default function PlantPage(allParameterObjects) {
       </StyledNavFavButton>
     </GridList>
   )
+}
+
+PlantPage.propTypes = {
+  plants: PropTypes.arrayOf(PropTypes.object),
+  onBookmark: PropTypes.func,
+  getOptionLabel: PropTypes.func,
+  selection: PropTypes.array,
+  onUserInput: PropTypes.func,
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import DetailCard from './DetailCard'
 import { Close } from 'styled-icons/material/'
+import PropTypes from 'prop-types'
 
 const StyledDetailGrid = styled.div`
   display: grid;
@@ -46,8 +47,8 @@ export default function DetailPage(allParametersObj) {
     onClick,
     history,
     onUserInput,
+    onBookmark,
   } = allParametersObj
-
   return (
     <StyledDetailGrid>
       <StyledDetailHeader />
@@ -57,6 +58,7 @@ export default function DetailPage(allParametersObj) {
           getOptionLabel={getOptionLabel}
           selection={selection}
           onUserInput={onUserInput}
+          onBookmark={onBookmark}
         />
       </Container>
       <StyledNavCloseButton onClick={() => onClick(history)}>
@@ -64,4 +66,12 @@ export default function DetailPage(allParametersObj) {
       </StyledNavCloseButton>
     </StyledDetailGrid>
   )
+}
+
+DetailPage.propTypes = {
+  plants: PropTypes.arrayOf(PropTypes.object),
+  getOptionLabel: PropTypes.func,
+  selection: PropTypes.arrayOf(PropTypes.string),
+  onClick: PropTypes.func,
+  history: PropTypes.object,
 }

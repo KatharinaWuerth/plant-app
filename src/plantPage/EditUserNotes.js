@@ -4,6 +4,7 @@ import { Save } from 'styled-icons/boxicons-regular/'
 import { CardLine } from '../common/CardComponents'
 import FormContainer from '../common/FormContainer'
 import FormLabel from '../common/FormLabel'
+import PropTypes from 'prop-types'
 
 const StyledEditNote = styled.textarea`
   width: 85%;
@@ -24,7 +25,6 @@ export default function EditUserNotes({ onSave, plant, changeEditMode }) {
     onSave(note, plant.id)
     changeEditMode()
   }
-
   return (
     <span>
       <CardLine />
@@ -41,4 +41,10 @@ export default function EditUserNotes({ onSave, plant, changeEditMode }) {
       </FormContainer>
     </span>
   )
+}
+
+EditUserNotes.propTypes = {
+  onSave: PropTypes.func,
+  plant: PropTypes.object,
+  changeEditMode: PropTypes.func,
 }

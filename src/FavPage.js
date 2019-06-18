@@ -4,6 +4,7 @@ import ListHeader from './common/ListHeader'
 import PlantList from './plantPage/PlantList'
 import GridList from './common/GridList'
 import NavButton from './common/NavButton'
+import PropTypes from 'prop-types'
 
 import { ArrowBack } from 'styled-icons/boxicons-regular/'
 
@@ -51,4 +52,11 @@ export default function FavPage({
       </StyledNavBackButton>
     </StyledGridList>
   )
+}
+
+FavPage.propTpyes = {
+  onBookmark: PropTypes.func,
+  plants: PropTypes.object,
+  getOptionLabel: PropTypes.func,
+  selection: PropTypes.arrayOf(PropTypes.string),
 }

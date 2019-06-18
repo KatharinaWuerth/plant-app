@@ -13,11 +13,13 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "docz:build": "docz build",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@craco/craco": "5.2.0",
     "babel-plugin-styled-components": "1.10.0",
+    "cypress": "^3.3.1",
     "docz": "1.2.0",
     "docz-theme-default": "1.2.0",
     "dotenv": "8.0.0",

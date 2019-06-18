@@ -1,8 +1,8 @@
 import React from 'react'
 import ButtonList from './ButtonList'
-
 import styled from 'styled-components'
 import ListHeader from '../common/ListHeader'
+import PropTypes from 'prop-types'
 
 const GridFilterPage = styled.div`
   display: grid;
@@ -21,4 +21,10 @@ export default function FilterPage({ optionList, selection, onOptionSelect }) {
       />
     </GridFilterPage>
   )
+}
+
+FilterPage.propTypes = {
+  optionList: PropTypes.arrayOf(PropTypes.object),
+  selection: PropTypes.arrayOf(PropTypes.string),
+  onOptionSelect: PropTypes.func,
 }
