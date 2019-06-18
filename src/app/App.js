@@ -167,6 +167,7 @@ export default function App() {
             {...props}
             getOptionLabel={getOptionLabel}
             selection={selection}
+            onUserInput={handleUserInput}
           />
         )}
       />
@@ -180,6 +181,7 @@ export default function App() {
             onBookmark={handleBookmark}
             plants={plants}
             onClick={handleGoBack}
+            onUserInput={handleUserInput}
             {...props}
           />
         )}
