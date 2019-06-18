@@ -1,0 +1,21 @@
+---
+name: TagList
+---
+
+import { Playground, Props } from 'docz'
+import TagList from './TagList.js'
+
+## TagList Styles
+
+<Playground>
+  <TagList
+    tags={['winterhart', 'tierfreundlich']}
+    getOptionLabel={() => 'winterhart'}
+    selection={['winterhart', 'allergen']}
+    matchInfo="3/5"
+  />
+</Playground>
+
+## Props
+
+<Props of={TagList} />

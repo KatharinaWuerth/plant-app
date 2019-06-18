@@ -9,7 +9,7 @@ import {
   CardLine,
 } from '../common/CardComponents'
 import Bookmark from '../plantPage/Bookmark'
-import TagList from '../plantPage/PlantTagList'
+import TagList from '../plantPage/TagList'
 import { getMatchedNum } from '../utils'
 import PropTypes from 'prop-types'
 
@@ -22,17 +22,13 @@ const StyledDescriptionHeader = styled.h4``
 
 const StyledDescription = styled.p``
 
-export default function DetailCard({ plant, getOptionLabel, selection }) {
-  const {
-    img,
-    alt,
-    title,
-    id,
-    onBookmark,
-    isBookmarked,
-    tagList,
-    description,
-  } = plant
+export default function DetailCard({
+  plant,
+  getOptionLabel,
+  selection,
+  onBookmark,
+}) {
+  const { img, alt, title, id, isBookmarked, tagList, description } = plant
 
   return (
     <StyledDetailCard plant={plant}>

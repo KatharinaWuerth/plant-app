@@ -47,6 +47,7 @@ export default function DetailPage(allParametersObj) {
     selection,
     onClick,
     history,
+    onBookmark,
   } = allParametersObj
   return (
     <StyledDetailGrid>
@@ -56,6 +57,7 @@ export default function DetailPage(allParametersObj) {
           plant={getPlantById(id, plants)}
           getOptionLabel={getOptionLabel}
           selection={selection}
+          onBookmark={onBookmark}
         />
       </Container>
       <StyledNavCloseButton onClick={() => onClick(history)}>
@@ -67,7 +69,6 @@ export default function DetailPage(allParametersObj) {
 
 DetailPage.propTypes = {
   plants: PropTypes.arrayOf(PropTypes.object),
-  id: PropTypes.string.isRequired,
   getOptionLabel: PropTypes.func,
   selection: PropTypes.arrayOf(PropTypes.string),
   onClick: PropTypes.func,

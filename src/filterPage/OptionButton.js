@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const OptionButton = styled.button`
   padding: 10px;
@@ -13,3 +14,8 @@ const OptionButton = styled.button`
 `
 
 export default OptionButton
+
+OptionButton.propTypes = {
+  active: PropTypes.bool,
+  onClick: PropTypes.func,
+}

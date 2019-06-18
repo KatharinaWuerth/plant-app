@@ -25,7 +25,6 @@ export default function EditUserNotes({ onSave, plant, changeEditMode }) {
     onSave(note, plant.id)
     changeEditMode()
   }
-
   return (
     <span>
       <CardLine />
@@ -44,7 +43,7 @@ export default function EditUserNotes({ onSave, plant, changeEditMode }) {
   )
 }
 
-EditUserNotes.protoTypes = {
+EditUserNotes.propTypes = {
   onSave: PropTypes.func,
   plant: PropTypes.object,
   changeEditMode: PropTypes.func,

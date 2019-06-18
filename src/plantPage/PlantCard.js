@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Bookmark from './Bookmark'
-import TagList from './PlantTagList'
-import { NavLink } from 'react-router-dom'
+import TagList from './TagList'
+import { Link } from 'react-router-dom'
 import {
   Card,
   CardPlantImage,
@@ -20,7 +20,7 @@ const StyledCard = styled(Card)`
   width: 80%;
 `
 
-const LinkContainer = styled(NavLink)``
+const LinkContainer = styled(Link)``
 
 export function PlantCard({
   plant,
