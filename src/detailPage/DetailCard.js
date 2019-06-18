@@ -26,8 +26,8 @@ const StyledDescription = styled.p``
 
 export default function DetailCard({
   plant,
-  getOptionLabel,
   selection,
+  getOptionLabel,
   onUserInput,
 }) {
   const {
