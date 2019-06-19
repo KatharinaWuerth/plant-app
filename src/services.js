@@ -1,3 +1,7 @@
+export function getPlants() {
+  return fetch('/plants').then(res => res.json())
+}
+
 export function setLocal(name, data) {
   localStorage.setItem(name, JSON.stringify(data))
 }
