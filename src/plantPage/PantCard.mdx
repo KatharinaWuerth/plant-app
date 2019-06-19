@@ -1,0 +1,29 @@
+---
+name: PlantCard
+---
+
+import { Playground, Props } from 'docz'
+import { BrowserRouter } from 'react-router-dom'
+import PlantCard from './PlantCard.js'
+
+## EditUserNotes Styles
+
+<Playground>
+  <BrowserRouter>
+    <PlantCard
+      plant={{
+        title: 'Magnolia',
+        id: '123',
+        isBookmarked: true,
+        img: '../img/Haworthia.jpg',
+        alt: 'abc',
+      }}
+      onBookmark={() => console.log('bookmarked')}
+      editMode={false}
+    />
+  </BrowserRouter>
+</Playground>
+
+## Props
+
+<Props of={PlantCard} />

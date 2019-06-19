@@ -44,7 +44,11 @@ export function PlantCard({
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <Container>
-            <EditAlt size={20} onClick={() => setEditMode(!editMode)} />
+            <EditAlt
+              title={'edit'}
+              size={20}
+              onClick={() => setEditMode(!editMode)}
+            />
             <Bookmark
               onClick={onBookmark}
               id={id}
@@ -78,13 +82,13 @@ PlantCard.propTypes = {
     alt: PropTypes.string,
     title: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
-    isBookmarked: PropTypes.bool,
+    isBookmarked: PropTypes.bool.isRequired,
     tagList: PropTypes.arrayOf(PropTypes.string),
     userNote: PropTypes.string,
   }),
   selection: PropTypes.arrayOf(PropTypes.string),
   matchInfo: PropTypes.string,
-  onBookmark: PropTypes.func,
+  onBookmark: PropTypes.func.isRequired,
   getOptionLabel: PropTypes.func,
   onUserInput: PropTypes.func,
   editMode: PropTypes.bool,
