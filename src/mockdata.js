@@ -87,18 +87,18 @@ const plantObjects = [
     id: '5',
     isBookmarked: false,
     tagList: [
-      'not-room',
+      'room',
       'dark',
       'moist',
-      'not-easy',
+      'easy',
       'not-big',
       'not-wide',
-      'not-toxic',
+      'toxic',
       'not-winter',
       'allergenic',
     ],
     description:
-      'lorem ipsum sldkfj lsdkfj alsdkfj aölsdkfj dicj dlskfj ödslkvj cöij ölaekjd ldkjf öalkje cöijv aöldkjf aödjv löakdjf aöijcöl jijaödkjfaöelkj öcjv',
+      'Orchideen sind relative pflegeleicht. Sie wollen keine pralle Sonne und vertragen einen halbschattigen Standort. Ein West- oder Ost-Fenster eignen sich daher gut. Die Pflanze bevorzugt eine höhere Luftfeuchtigkeit. Ein Standort im Badezimmer ist hierbei sehr hilfreich oder man besprüht die Orchideen einfach regelmäßig mit Wasser. Betreffend des Gießens: Einmal pro Woche die Pflanze tauchen. Orchidden sind nicht direkt giftig, eine Einnahme der Blätter oder Wurzeln kann jedoch zu Überkeit, Schweindel, ... führen.',
   },
 ]
 

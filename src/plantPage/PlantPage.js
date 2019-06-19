@@ -91,7 +91,7 @@ export default function PlantPage(allParameterObjects) {
       <StyledListHeader>Unsere Vorschläge</StyledListHeader>
       <Search
         className="searchbar"
-        type="text"
+        type="search"
         placeholder="Suche eine bestimmte Pflanze"
         onKeyPress={event => event.charCode === 13 && onKeyPressSearch(event)}
       />
