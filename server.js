@@ -1,7 +1,7 @@
 const setupServer = require('./setup-server')
 const app = setupServer()
 
-const PlantList = require('.models/PlantList')
+const PlantList = require('./models/PlantList')
 
 app.get('/plants', (req, res) => {
   PlantList.find()
