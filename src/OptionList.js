@@ -55,7 +55,7 @@ const optionList = [
   {
     id: uid(),
     options: [
-      { id: 'winter', label: 'frotsbeständig' },
+      { id: 'winter', label: 'frostbeständig' },
       { id: 'not-winter', label: 'temperaturempfindlich' },
     ],
   },
