@@ -4,10 +4,10 @@ const plantListSchema = new mongoose.Schema([
   {
     title: String,
     img: String,
-    id: Number,
     isBookmarked: { type: Boolean, default: false },
     tagList: [String],
     description: String,
+    userNote: String,
   },
 ])
 

@@ -8,3 +8,9 @@ app.get('/plants', (req, res) => {
     .then(plants => res.json(plants))
     .catch(err => res.json(err))
 })
+
+app.post('/plants', (req, res) => {
+  PlantList.create(req.body)
+    .then(plant => res.json(plant))
+    .catch(err => res.json(err))
+})
