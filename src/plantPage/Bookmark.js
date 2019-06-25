@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import IconBookmark from '../img/BookmarkDarkGreen.png'
-import IconBookmarkActive from '../img/BookmarkActive.png'
+import IconBookmark from '../bookmarkImg/BookmarkDarkGreen.png'
+import IconBookmarkActive from '../bookmarkImg/BookmarkActive.png'
 
 const StyledBookmarkImage = styled.img`
   width: 20px;

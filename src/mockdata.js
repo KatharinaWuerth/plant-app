@@ -1,8 +1,9 @@
-import pilea from './img/Pilea.jpg'
-import gasteria from './img/Gasteria.jpg'
-import haworthia from './img/Haworthia.jpg'
-import orchid from './img/Orchid.jpg'
-import magnolia from './img/Magnolia.jpg'
+/*
+import pilea from 'img/Pilea.jpg'
+import gasteria from 'img/Gasteria.jpg'
+import haworthia from 'img/Haworthia.jpg'
+import orchid from 'img/Orchid.jpg'
+import magnolia from 'img/Magnolia.jpg'
 
 const plantObjects = [
   {
@@ -103,3 +104,5 @@ const plantObjects = [
 ]
 
 export default plantObjects
+
+*/

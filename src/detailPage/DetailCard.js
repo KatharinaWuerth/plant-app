@@ -32,7 +32,7 @@ export default function DetailCard({
   onUserInput,
   onBookmark,
 }) {
-  const { img, alt, title, id, isBookmarked, tagList, description } = plant
+  const { img, alt, title, _id, isBookmarked, tagList, description } = plant
   const [editMode, setEditMode] = useState(false)
 
   return (
@@ -45,7 +45,7 @@ export default function DetailCard({
             <EditAlt size={20} onClick={() => setEditMode(!editMode)} />
             <Bookmark
               onClick={onBookmark}
-              id={id}
+              id={_id}
               isBookmarked={isBookmarked}
             />
           </Container>
@@ -77,7 +77,7 @@ DetailCard.protoTypes = {
     img: PropTypes.string,
     alt: PropTypes.string,
     title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     onBookmark: PropTypes.func,
     isBookmarked: PropTypes.bool,
     tagList: PropTypes.arrayOf(PropTypes.string).isRequired,

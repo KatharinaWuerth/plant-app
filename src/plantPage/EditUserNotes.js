@@ -22,7 +22,7 @@ export default function EditUserNotes({ onSave, plant, changeEditMode }) {
 
   function handleInput(event) {
     event.preventDefault()
-    onSave(note, plant.id)
+    onSave(note, plant._id)
     changeEditMode()
   }
   return (

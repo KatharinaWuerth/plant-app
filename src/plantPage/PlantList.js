@@ -21,7 +21,7 @@ export default function PlantList({
     <StyledPlantList>
       {plants.map(plant => (
         <PlantCard
-          key={plant.id}
+          key={plant._id}
           plant={plant}
           getOptionLabel={getOptionLabel}
           tags={plant.tagList}

@@ -35,7 +35,7 @@ const StyledNavCloseButton = styled.button`
 
 function getPlantById(id, plants) {
   const newPlants = plants
-  const clickedPlant = newPlants.filter(plant => plant.id === id)[0]
+  const clickedPlant = newPlants.filter(plant => plant._id === id)[0]
   return clickedPlant
 }
 export default function DetailPage(allParametersObj) {

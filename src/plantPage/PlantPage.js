@@ -4,7 +4,7 @@ import PlantList from './PlantList'
 import ListHeader from '../common/ListHeader'
 import GridList from '../common/GridList'
 import NavButton from '../common/NavButton'
-import BookmarkActive from '../img/BookmarkActive.png'
+import BookmarkActive from '../bookmarkImg/BookmarkActive.png'
 import { FilterAlt } from 'styled-icons/boxicons-regular/'
 import Fuse from 'fuse.js'
 import plantObjects from '../mockdata'
@@ -79,7 +79,7 @@ export default function PlantPage(allParameterObjects) {
     }
     var fuse = new Fuse(plantObjects, options)
     var result = fuse.search(searchParam)
-    handleSearch(result[0].id)
+    handleSearch(result[0]._id)
   }
 
   function handleSearch(id) {

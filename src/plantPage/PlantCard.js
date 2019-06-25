@@ -32,12 +32,12 @@ export function PlantCard({
 }) {
   const [editMode, setEditMode] = useState(false)
 
-  const { img, alt, title, id, isBookmarked } = plant
+  const { img, alt, title, _id, isBookmarked } = plant
   const tags = plant.tagList
 
   return (
     <StyledCard>
-      <LinkContainer to={'/detail/' + id}>
+      <LinkContainer to={`/detail/${_id}`}>
         <CardPlantImage src={img} alt={alt} />
       </LinkContainer>
       <CardTextbox>
@@ -51,7 +51,7 @@ export function PlantCard({
             />
             <Bookmark
               onClick={onBookmark}
-              id={id}
+              id={_id}
               isBookmarked={isBookmarked}
             />
           </Container>
@@ -81,7 +81,7 @@ PlantCard.propTypes = {
     img: PropTypes.string,
     alt: PropTypes.string,
     title: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     isBookmarked: PropTypes.bool.isRequired,
     tagList: PropTypes.arrayOf(PropTypes.string),
     userNote: PropTypes.string,

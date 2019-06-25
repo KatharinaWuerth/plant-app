@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import plantObjects from '../mockdata'
+//import plantObjects from '../mockdata'
 import { setLocal, getLocal } from '../services'
 import PlantPage from '../plantPage/PlantPage'
 import FilterPage from '../filterPage/FilterPage'
@@ -11,12 +11,19 @@ import DetailPage from '../detailPage/DetailPage'
 import ScrollMemory from 'react-router-scroll-memory'
 import { getMatchedOptions } from '../utils'
 import { getMatchedNum } from '../utils'
+import { getPlants } from '../services'
 
-let mockPlants = plantObjects
+//let mockPlants = plantObjects
 
 export default function App() {
-  const [plants, setPlants] = useState(getLocal('plants') || mockPlants)
+  const [plants, setPlants] = useState(getLocal('plants') || [])
   const [selection, setSelection] = useState(getLocal('selection') || [])
+
+  useEffect(() => {
+    getPlants()
+      .then(data => setPlants(data))
+      .catch(error => console.log(error))
+  }, [])
 
   useEffect(() => {
     setLocal('plants', plants)
@@ -28,7 +35,7 @@ export default function App() {
 
   function handleBookmark(id) {
     const newPlants = [...plants]
-    const index = newPlants.map(plant => plant.id).indexOf(id)
+    const index = newPlants.map(plant => plant._id).indexOf(id)
     newPlants[index].isBookmarked = !newPlants[index].isBookmarked
     setPlants(newPlants)
   }
@@ -118,7 +125,7 @@ export default function App() {
 
   function handleUserInput(note, id) {
     const newPlants = [...plants]
-    const index = newPlants.map(plant => plant.id).indexOf(id)
+    const index = newPlants.map(plant => plant._id).indexOf(id)
     newPlants[index].userNote = note.trim()
     setPlants(newPlants)
   }
