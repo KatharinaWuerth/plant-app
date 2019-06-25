@@ -63,7 +63,7 @@ const plantObjects = [
       'not-allergenic',
     ],
     description:
-      'Wer nicht viel Zeit hat, sich aber an grünen Pflanzen erfreut, für den ist die Gasteria genau richtig. Sie verträgt einen halbschattigen, aber auch sonnignen Standort und sie kommt auch längere Zeit ohne regelmäßiges Gießen aus. Wer Katzen hat, die gerne an grünen Blättern naschen sollte von der Pflanze aber lieber Abstand halten.',
+      'Wer nicht viel Zeit hat, sich aber an grünen Pflanzen erfreut, für den ist die Gasteria genau richtig. Sie verträgt einen halbschattigen, aber auch sonnigen Standort und sie kommt auch längere Zeit ohne regelmäßiges Gießen aus. Wer Katzen hat, die gerne an grünen Blättern naschen sollte aber lieber auf diese Pflanze verzichten.',
   },
   {
     title: 'Haworthia',
@@ -101,7 +101,7 @@ const plantObjects = [
       'allergenic',
     ],
     description:
-      'Orchideen sind relative pflegeleicht. Sie wollen keine pralle Sonne und vertragen einen halbschattigen Standort. Ein West- oder Ost-Fenster eignen sich daher gut. Die Pflanze bevorzugt eine höhere Luftfeuchtigkeit. Ein Standort im Badezimmer ist hierbei sehr hilfreich oder man besprüht die Orchideen einfach regelmäßig mit Wasser. Betreffend des Gießens: Einmal pro Woche die Pflanze tauchen. Orchidden sind nicht direkt giftig, eine Einnahme der Blätter oder Wurzeln kann jedoch zu Überkeit, Schweindel, ... führen.',
+      'Orchideen sind relative pflegeleicht. Sie wollen keine pralle Sonne und vertragen einen halbschattigen Standort. Ein West- oder Ost-Fenster eignet sich daher gut. Die Pflanze bevorzugt eine höhere Luftfeuchtigkeit. Ein Standort im Badezimmer ist hierbei sehr hilfreich oder man besprüht die Orchideen einfach regelmäßig mit Wasser. Betreffend des Gießens: Einmal pro Woche die Pflanze tauchen. Orchideen sind nicht direkt giftig, eine Einnahme der Blätter oder Wurzeln kann jedoch zu Übelkeit und Schwindel führen.',
   },
   {
     title: 'Gummibaum',
@@ -120,7 +120,7 @@ const plantObjects = [
       'allergenic',
     ],
     description:
-      'Ein sehr attraktiver und pflegeleichter Baum. Wer allerdings Kinder oder Haustiere hat, der sollte lieber auf diese Pflanze verzichten. Die Blätter sind leicht giftig und können allergische Hautreaktionen hervorrufen. Er verträgt einen halbschattigen Standort, sogar Heizluft im Winter macht ihm nichts aus. Jedoch sollte man ausreichend Platz in der Wohnung haben, da der Gummibaum ausladen und hoch wächst.',
+      'Ein sehr attraktiver und pflegeleichter Baum. Wer allerdings Kinder oder Haustiere hat, der sollte lieber auf diese Pflanze verzichten. Die Blätter sind leicht giftig und können allergische Hautreaktionen hervorrufen. Er verträgt einen halbschattigen Standort, sogar Heizluft im Winter macht ihm nichts aus. Jedoch sollte man ausreichend Platz in der Wohnung haben, da der Gummibaum ausladend und hoch wächst.',
   },
   {
     title: 'Mohn',
@@ -139,7 +139,7 @@ const plantObjects = [
       'allergenic',
     ],
     description:
-      'Der attraktive Klatschmohn macht sich in jedem Garten gut. Vor allem die ureifen Samen sind jedoch leicht giftig und können zu Übelkeit, Erbrechen und Bauchschmerzen führen. Gerne hat die Pflanze einen wasserdruchlässigen Boden, sie verträgt keine Staunässe. Volle Sonneneinstrahlung ist kein Problem.',
+      'Der attraktive Klatschmohn macht sich in jedem Garten gut. Vor allem die ureifen Samen sind jedoch leicht giftig und können zu Übelkeit, Erbrechen und Bauchschmerzen führen. Gerne hat die Pflanze einen wasserdurchlässigen Boden, sie verträgt keine Staunässe. Volle Sonneneinstrahlung ist kein Problem.',
   },
   {
     title: 'Garanie',
@@ -158,7 +158,7 @@ const plantObjects = [
       'allergenic',
     ],
     description:
-      'Wer kleine Haustiere hat, sollte auf jeden fall auf diese Pflanze verzichten. Für Hamster und Hasen kann der Verzehrt tötdlich enden. Katzen und Hunde sind davon nicht betroffen, auch für Menschen ist die Geranie ungefährlich. Sie verträgt pralle Sonne möchte dann aber ausreichend gegossen werden.',
+      'Wer kleine Haustiere hat, sollte auf jeden fall auf diese Pflanze verzichten. Für Hamster und Hasen kann der Verzehrt tötdlich enden. Katzen und Hunde sind davon nicht betroffen, auch für Menschen ist die Geranie ungefährlich. Sie verträgt pralle Sonne, möchte dann aber ausreichend gegossen werden.',
   },
 ]
 
