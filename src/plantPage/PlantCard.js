@@ -63,7 +63,6 @@ export function PlantCard({
           selection={selection}
           matchInfo={matchInfo}
         />
-
         <Notes
           value={plant.userNote}
           onUserInput={onUserInput}

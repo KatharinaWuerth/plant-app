@@ -40,38 +40,35 @@ export default function App() {
     setPlants(newPlants)
   }
 
-  function doesOptionGroupIncludeOption(optionGroup, optionId) {
-    return (
-      optionGroup.options.filter(option => option.id === optionId).length !== 0
-    )
+  function doesOptionsIncludeOption(options, optionId) {
+    return options.filter(option => option.id === optionId).length !== 0
   }
 
-  function getOptionGroupsByOptionId(optionId) {
+  function getOptionGroupByOptionId(optionId) {
     const containingOptionGroups = optionList.filter(optionGroup =>
-      doesOptionGroupIncludeOption(optionGroup, optionId)
+      doesOptionsIncludeOption(optionGroup.options, optionId)
     )
-    return containingOptionGroups
+    return containingOptionGroups[0]
   }
 
   function handleOptionSelect(optionId) {
     if (selection.includes(optionId)) {
+      // Remove, if option is already selected
       const newSelection = selection.filter(
         selectedOptionId => selectedOptionId !== optionId
       )
       setSelection(newSelection)
-      return
+    } else {
+      // Remove other options of the same group
+      const containingOptionGroup = getOptionGroupByOptionId(optionId)
+      const optionIdsToDeselect = containingOptionGroup.options.map(
+        option => option.id
+      )
+      const newSelection = selection.filter(
+        optionId => !optionIdsToDeselect.includes(optionId)
+      )
+      setSelection([...newSelection, optionId])
     }
-
-    const containingOptionGroups = getOptionGroupsByOptionId(optionId)
-    const containingOptionGroup = containingOptionGroups[0]
-    const optionsToDeselect = containingOptionGroup.options.map(
-      option => option.id
-    )
-
-    const newSelection = selection.filter(
-      optionId => !optionsToDeselect.includes(optionId)
-    )
-    setSelection([...newSelection, optionId])
   }
 
   function getFilteredPlants() {
@@ -82,12 +79,13 @@ export default function App() {
       const filteredPlants = plantList.filter(plant =>
         hasSelectedOption(plant.tagList)
       )
-      function hasSelectedOption(tagList) {
-        const matchedOption = getMatchedOptions(tagList, selection)
-        return matchedOption.length > 0
-      }
       return filteredPlants
     }
+  }
+
+  function hasSelectedOption(tagList) {
+    const matchedOption = getMatchedOptions(tagList, selection)
+    return matchedOption.length > 0
   }
 
   function getSortedFilteredPlants() {
@@ -112,10 +110,8 @@ export default function App() {
   }
 
   function getOptionLabel(tag) {
-    const optionGroupArray = getOptionGroupsByOptionId(tag)
-    const optionArray = optionGroupArray[0].options.filter(
-      option => option.id === tag
-    )
+    const optionGroup = getOptionGroupByOptionId(tag)
+    const optionArray = optionGroup.options.filter(option => option.id === tag)
     return optionArray[0].label
   }
 
